@@ -11,7 +11,6 @@ public class Chunk : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         SpawnWallAt("Spawn1");
         SpawnWallAt("Spawn2");
         SpawnWallAt("Spawn3");

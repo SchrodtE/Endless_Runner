@@ -36,16 +36,22 @@ public class PlayerRun : MonoBehaviour
 
             if (Input.GetButtonDown("Left"))
             {
-                pos.x -= 1;
-                transform.position = pos;
-                rb.velocity = Vector3.zero;
+                if(pos.x >= -2)
+                {
+                    pos.x -= 1;
+                    transform.position = pos;
+                    rb.velocity = Vector3.zero;
+                }
             }
 
             if (Input.GetButtonDown("Right"))
             {
-                pos.x += 1;
-                transform.position = pos;
-                rb.velocity = Vector3.zero;
+                if (pos.x <= 2)
+                {
+                    pos.x += 1;
+                    transform.position = pos;
+                    rb.velocity = Vector3.zero;
+                }  
             }
 
             if (Input.GetButtonDown("Fire1"))
