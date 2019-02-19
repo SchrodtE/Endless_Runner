@@ -15,12 +15,30 @@ public class Chunk : MonoBehaviour
         //SpawnWallAt("Spawn2");
         //SpawnWallAt("Spawn3");
 
+        var ran = Random.Range(1, 5);
 
-        SpawnEnemyAt("Spawn1");
-        SpawnEnemyAt("Spawn2");
-        SpawnEnemyAt("Spawn3");
-        SpawnEnemyAt("Spawn4");
-        SpawnEnemyAt("Spawn5");
+        if(ran == 1)
+        {
+            SpawnEnemyAt("Spawn1");
+        }
+        if (ran == 2)
+        {
+            SpawnEnemyAt("Spawn2");
+        }
+        if (ran == 3)
+        {
+            SpawnEnemyAt("Spawn3");
+        }
+        if (ran == 4)
+        {
+            SpawnEnemyAt("Spawn4");
+        }
+        if (ran == 5)
+        {
+            SpawnEnemyAt("Spawn5");
+        }
+
+
 
     }
 

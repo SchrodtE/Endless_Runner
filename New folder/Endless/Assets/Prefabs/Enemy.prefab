@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 6693814363871197569}
   - component: {fileID: 7827754149727403866}
   - component: {fileID: 9088996592040708938}
-  - component: {fileID: 716910835085027380}
+  - component: {fileID: 5580927477914043902}
   - component: {fileID: 4733710082727581496}
   - component: {fileID: 736905755111092244}
-  - component: {fileID: 4587868704893470582}
+  - component: {fileID: 6897540681740625245}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ce8f7c14dbb153e4584d5f704c16bf2d, type: 2}
+  - {fileID: 2100000, guid: 005ba3dd6580b3441bfc3d7976fa5a8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,7 +81,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &716910835085027380
+--- !u!114 &5580927477914043902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3553735095773550420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0a2b5ae38e4c704fa6f4968c9b61107, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ce81e39a303f7848b3e82ecd6b7c721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   halfSize: {x: 0.5, y: 0.5, z: 0.1}
@@ -123,7 +123,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 64
   m_CollisionDetection: 0
---- !u!114 &4587868704893470582
+--- !u!114 &6897540681740625245
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3553735095773550420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08e19c26d7b2dc34598790dcea6b5526, type: 3}
+  m_Script: {fileID: 11500000, guid: b0e973808865c1743b4b8cfa85a57af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveRange: 0.8

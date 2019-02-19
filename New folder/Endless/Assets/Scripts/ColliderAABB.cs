@@ -13,7 +13,7 @@ public class ColliderAABB : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CalcEdges();
+
     }
 
     void CalcEdges()
@@ -24,15 +24,12 @@ public class ColliderAABB : MonoBehaviour
 
     public bool CheckOverlap(ColliderAABB other)
     {
-        //x
         if (min.x > other.max.x) return false;
         if (max.x < other.min.x) return false;
 
-        //y
         if (min.y > other.max.y) return false;
         if (max.y < other.min.y) return false;
 
-        //z
         if (min.z > other.max.z) return false;
         if (max.z < other.min.z) return false;
 
