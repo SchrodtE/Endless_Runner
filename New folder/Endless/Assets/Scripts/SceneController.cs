@@ -87,6 +87,15 @@ public class SceneController : MonoBehaviour
             }
         } 
 
+        if(enemies.Count > 0)
+        {
+            if(player.position.z - enemies[0].transform.position.z > 14)
+            {
+                Destroy(enemies[0]);
+                enemies.RemoveAt(0);
+            }
+        }
+
         while(chunks.Count < 5)
         {
             // spawn a new chunk

@@ -12,18 +12,21 @@ public class PlayerRun : MonoBehaviour
     public Vector3 weaponPos2;
     public float jumpForce = 2;
     public float attackRange = 3;
+
     public bool hasPower1 = false;
     public bool hasPower2 = false;
     public bool hasPower3 = false;
     public bool hasPower1b = false;
     public bool hasPower2b = false;
     public bool hasPower3b = false;
+
     public float hoverNum = 0;
     public static Mesh Player;
     public GameObject prefabWeapon1;
     public GameObject prefabWeapon2;
     public static Mesh Weapon;
     SceneController powerLOL;
+    SceneController controlRef;
     Rigidbody rb;
 
     //bryan's stuff
@@ -92,7 +95,7 @@ public class PlayerRun : MonoBehaviour
             if (Input.GetButtonDown("Fire2"))
             {
                 print("Zoom!");
-                currentDashTime = 0.0f;
+                currentDashTime = 2.0f;
                 speed = 30;
             }
             if (currentDashTime < maxDashTime)
