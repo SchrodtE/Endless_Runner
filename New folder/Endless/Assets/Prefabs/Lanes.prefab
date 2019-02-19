@@ -130,8 +130,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 151555669207433765}
-  - component: {fileID: 4476069935701485400}
   - component: {fileID: 4865952020206862938}
+  - component: {fileID: 4116016168225420107}
+  - component: {fileID: 4094249503422871385}
   m_Layer: 0
   m_Name: Lanes
   m_TagString: Untagged
@@ -171,7 +172,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4476069935701485400
+--- !u!114 &4865952020206862938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850253182045503114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89587bfd5a6adbb4d8a774e331bf2a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabWall: {fileID: 1768173399290300303, guid: 7b4dca6ee4d61ba47bb6d8cdf54037eb,
+    type: 3}
+  prefabEnemy: {fileID: 3553735095773550420, guid: e3a08fd828d31ab4b970df575f1a902d,
+    type: 3}
+--- !u!114 &4116016168225420107
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,7 +206,7 @@ MonoBehaviour:
     type: 3}
   prefabBike: {fileID: 7895549283481362460, guid: c542b20e14ee66e4788c56dcfd2b5e2c,
     type: 3}
---- !u!114 &4865952020206862938
+--- !u!114 &4094249503422871385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,12 +215,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1850253182045503114}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89587bfd5a6adbb4d8a774e331bf2a0e, type: 3}
+  m_Script: {fileID: 11500000, guid: ac64e59349dfebd408e63634c1537edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabWall: {fileID: 1768173399290300303, guid: 7b4dca6ee4d61ba47bb6d8cdf54037eb,
+  prefabHumHealth: {fileID: 6395939702787971822, guid: 29fccca61c0b53948842d7be85489061,
     type: 3}
-  prefabEnemy: {fileID: 3553735095773550420, guid: e3a08fd828d31ab4b970df575f1a902d,
+  prefabZomHealth: {fileID: 8706169300343059175, guid: d318c12e03b7ae54abb563e3a679acd0,
     type: 3}
 --- !u!1 &1853769163601726535
 GameObject:

@@ -6,6 +6,8 @@ public class SceneController : MonoBehaviour
 {
     public GameObject prefabChunk;
     public GameObject prefabItem1;
+    public GameObject prefabZomHealth;
+    public GameObject prefabHealthPickup;
     public Transform player;
     public Transform weapon1;
     public bool hasBeenHit = false;
@@ -15,11 +17,14 @@ public class SceneController : MonoBehaviour
 
     List<GameObject> chunks = new List<GameObject>();
     List<GameObject> item1s = new List<GameObject>();
+    List<GameObject> heals = new List<GameObject>();
     static public List<GameObject> walls = new List<GameObject>();
     static public List<GameObject> enemies = new List<GameObject>();
     static public List<GameObject> coffees = new List<GameObject>();
     static public List<GameObject> bikes = new List<GameObject>();
     static public List<GameObject> balloons = new List<GameObject>();
+    static public List<GameObject> humheals = new List<GameObject>();
+    static public List<GameObject> zomheals = new List<GameObject>();
     ColliderAABB pBox;
     PlayerRun playerRef;
     ColliderAABB wBox1;
@@ -125,6 +130,15 @@ public class SceneController : MonoBehaviour
             }
         }
 
+        if (heals.Count > 0)
+        {
+            if(player.position.z - heals[0].transform.position.z > 14)
+            {
+                Destroy(heals[0]);
+                heals.RemoveAt(0);
+            }
+        }
+
         while (item1s.Count < 5)
         {
             // spawn a new item1
@@ -139,6 +153,22 @@ public class SceneController : MonoBehaviour
             item1s.Add(obj);
 
         }
+
+        while (heals.Count < 7)
+        {
+            // spawn a new heals
+            Vector3 position = Vector3.zero;
+
+           /** if (heals.Count > 0)
+            {
+                position = heals[heals.Count - 1].transform.Find("Connector").position;
+            }**/
+
+            GameObject obj = Instantiate(prefabChunk, position, Quaternion.identity);
+            heals.Add(obj);
+
+        }
+
         if (coffees.Count > 0)
         {
             foreach (GameObject coffee in coffees)
