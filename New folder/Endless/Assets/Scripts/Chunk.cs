@@ -11,31 +11,20 @@ public class Chunk : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnWallAt("Spawn1");
-        SpawnWallAt("Spawn2");
-        SpawnWallAt("Spawn3");
+        //SpawnWallAt("Spawn1");
+        //SpawnWallAt("Spawn2");
+        //SpawnWallAt("Spawn3");
 
-        float spawnLoc = Random.Range(1, 9);
 
-        if (spawnLoc <= 3)
-        {
-            SpawnEnemyAt("Spawn1");
-            print("1");
-        }
+        SpawnEnemyAt("Spawn1");
+        SpawnEnemyAt("Spawn2");
+        SpawnEnemyAt("Spawn3");
+        SpawnEnemyAt("Spawn4");
+        SpawnEnemyAt("Spawn5");
 
-        if (spawnLoc <= 6 && spawnLoc >= 4)
-        {
-            SpawnEnemyAt("Spawn2");
-            print("2");
-        }
-        if(spawnLoc >= 7)
-        {
-            SpawnEnemyAt("Spawn3");
-            print("3");
-        }
     }
 
-    private void SpawnWallAt(string name)
+    /**private void SpawnWallAt(string name)
     {
         if(Random.Range(0, 100) < 50)
         {
@@ -43,7 +32,7 @@ public class Chunk : MonoBehaviour
             GameObject obj = Instantiate(prefabWall, position, Quaternion.identity);
             SceneController.walls.Add(obj);
         }
-    }
+    }**/
 
     private void SpawnEnemyAt(string name)
     {

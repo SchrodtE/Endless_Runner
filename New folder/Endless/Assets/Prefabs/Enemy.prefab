@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9088996592040708938}
   - component: {fileID: 716910835085027380}
   - component: {fileID: 4733710082727581496}
-  - component: {fileID: 406559704390841656}
+  - component: {fileID: 736905755111092244}
   - component: {fileID: 4587868704893470582}
   m_Layer: 10
   m_Name: Enemy
@@ -107,7 +107,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &406559704390841656
+--- !u!54 &736905755111092244
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,12 +117,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 96
-  m_CollisionDetection: 1
+  m_Constraints: 64
+  m_CollisionDetection: 0
 --- !u!114 &4587868704893470582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e19c26d7b2dc34598790dcea6b5526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveRange: 0.5
+  moveRange: 0.8
   moveDir: {x: 0, y: 0, z: 0}
-  moveForce: 5
-  distFromEdge: 1
+  moveForce: 3

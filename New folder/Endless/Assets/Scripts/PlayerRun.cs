@@ -36,7 +36,7 @@ public class PlayerRun : MonoBehaviour
 
             if (Input.GetButtonDown("Left"))
             {
-                if(pos.x >= -2)
+                if(pos.x >= -1.8)
                 {
                     pos.x -= 1;
                     transform.position = pos;
@@ -46,7 +46,7 @@ public class PlayerRun : MonoBehaviour
 
             if (Input.GetButtonDown("Right"))
             {
-                if (pos.x <= 2)
+                if (pos.x <= 1.8)
                 {
                     pos.x += 1;
                     transform.position = pos;
@@ -56,18 +56,18 @@ public class PlayerRun : MonoBehaviour
 
             if (Input.GetButtonDown("Fire1"))
             {
-                Attack();
+                //Attack();
             }
         }
 
     }
 
-    void Attack()
+    /**void Attack()
     {
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, attackRange))
         {
             print(hit.transform.name);
         }
-    }
+    }**/
 }

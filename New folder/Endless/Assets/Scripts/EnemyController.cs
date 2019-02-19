@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public float moveRange = 1f;
+    public float moveRange = 2f;
     private Rigidbody rigid;
     public Vector3 moveDir;
     public float moveForce = 0f;
@@ -19,7 +19,8 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveDir = ChooseDirection();
+        moveDir = transform.right;
+
         rigid.velocity = moveDir * moveForce;
 
         RaycastHit hit;
@@ -32,7 +33,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-        Vector3 ChooseDirection()
+        /**Vector3 ChooseDirection()
         {
             System.Random ran = new System.Random();
             int i = ran.Next(0, 1);
@@ -49,5 +50,5 @@ public class EnemyController : MonoBehaviour
             }
 
             return dir;
-        }
-    }
+        }**/
+}
