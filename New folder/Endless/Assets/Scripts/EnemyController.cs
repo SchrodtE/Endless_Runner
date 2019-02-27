@@ -4,33 +4,55 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public float moveRange = 2f;
+    private float moveRange;
     private Rigidbody rigid;
     public Vector3 moveDir;
     public float moveForce = 0f;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
-        
     }
 
     // Update is called once per frame
     void Update()
     {
         moveDir = transform.right;
-
+        
         rigid.velocity = moveDir * moveForce;
 
-        RaycastHit hit;
+        int range = Random.Range(0, 3);
 
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, moveRange))
+        if (range == 0)
+        {
+            moveRange = 0.8f;
+        }
+
+        if (range == 1)
+        {
+            moveRange = 1.6f;
+        }
+
+        if (range == 2)
+        {
+            moveRange = 2.4f;
+        }
+
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), moveRange))
         {
             //ChooseDirection();
+            
             moveDir = -transform.forward;
+
+            range = Random.Range(0,3);
+
             transform.rotation = Quaternion.LookRotation(moveDir);
         }
+
+        
     }
 
         /**Vector3 ChooseDirection()

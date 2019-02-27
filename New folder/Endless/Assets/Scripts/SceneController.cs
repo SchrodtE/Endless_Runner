@@ -26,6 +26,7 @@ public class SceneController : MonoBehaviour
     static public List<GameObject> humheals = new List<GameObject>();
     static public List<GameObject> zomheals = new List<GameObject>();
     ColliderAABB pBox;
+    ColliderAABB epBox;
     PlayerRun playerRef;
     ColliderAABB wBox1;
     PlayerRun weaponRef1;
@@ -36,6 +37,7 @@ public class SceneController : MonoBehaviour
     {
         pBox = GameObject.Find("Player").GetComponent<ColliderAABB>();
         playerRef = GameObject.Find("Player").GetComponent<PlayerRun>();
+        //epBox = GameObject.Find("Enemy").GetComponent<ColliderAABB>();
         //wBox1 = GameObject.Find("Weapon").GetComponent<ColliderAABB>();
         //weaponRef1 = GameObject.Find("Weapon").GetComponent<PlayerRun>();
         humanityMeterRef = GameObject.Find("Slider").GetComponent<HumanityMeter>();
@@ -78,6 +80,7 @@ public class SceneController : MonoBehaviour
                 playerRef.hasPower3b = false;
             }
         }
+
         if (chunks.Count > 0)
         {
             if (player.position.z - chunks[0].transform.position.z > 14)
@@ -85,18 +88,32 @@ public class SceneController : MonoBehaviour
                 Destroy(chunks[0]);
                 chunks.RemoveAt(0);
             }
-        } 
+        }
 
-        if(enemies.Count > 0)
+        //enemies
+        if (enemies.Count > 0)
         {
-            if(player.position.z - enemies[0].transform.position.z > 14)
+            foreach (GameObject enemy in enemies)
+            {
+                if (pBox.CheckOverlap(enemy.GetComponent<ColliderAABB>()))
+                {
+                    print("COLLISION!!");
+                    //TODO: Make health less
+                }
+            }
+
+            if (player.position.z - enemies[0].transform.position.z > 14)
             {
                 Destroy(enemies[0]);
                 enemies.RemoveAt(0);
             }
         }
+        //end of enemies
 
-        while(chunks.Count < 5)
+        //chunks
+        
+
+        while (chunks.Count < 5)
         {
             // spawn a new chunk
             Vector3 position = Vector3.zero;
@@ -110,6 +127,9 @@ public class SceneController : MonoBehaviour
             chunks.Add(obj);
 
         }
+        //end of chunks
+
+        //walls
         if (walls.Count > 0)
         {
             foreach (GameObject wall in walls)
@@ -129,6 +149,8 @@ public class SceneController : MonoBehaviour
                 }
             }
         }
+        //end of walls
+
         //
         if (item1s.Count > 0)
         {

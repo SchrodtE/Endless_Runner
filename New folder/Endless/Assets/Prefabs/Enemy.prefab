@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 6693814363871197569}
   - component: {fileID: 7827754149727403866}
   - component: {fileID: 9088996592040708938}
-  - component: {fileID: 5580927477914043902}
   - component: {fileID: 4733710082727581496}
   - component: {fileID: 736905755111092244}
   - component: {fileID: 6897540681740625245}
+  - component: {fileID: 3164645726141888028}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
@@ -81,19 +81,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &5580927477914043902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3553735095773550420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ce81e39a303f7848b3e82ecd6b7c721, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  halfSize: {x: 0.5, y: 0.5, z: 0.1}
 --- !u!65 &4733710082727581496
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -137,4 +124,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveRange: 0.8
   moveDir: {x: 0, y: 0, z: 0}
-  moveForce: 3
+  moveForce: 5
+--- !u!114 &3164645726141888028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3553735095773550420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ce81e39a303f7848b3e82ecd6b7c721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halfSize: {x: 0.5, y: 0.5, z: 0.1}
