@@ -20,6 +20,7 @@ public class SceneController : MonoBehaviour
     List<GameObject> heals = new List<GameObject>();
     static public List<GameObject> walls = new List<GameObject>();
     static public List<GameObject> enemies = new List<GameObject>();
+    static public List<GameObject> humans = new List<GameObject>();
     static public List<GameObject> coffees = new List<GameObject>();
     static public List<GameObject> bikes = new List<GameObject>();
     static public List<GameObject> balloons = new List<GameObject>();
@@ -97,7 +98,7 @@ public class SceneController : MonoBehaviour
             {
                 if (pBox.CheckOverlap(enemy.GetComponent<ColliderAABB>()))
                 {
-                    print("COLLISION!!");
+                    print("ZomCOLLISION!!");
                     //TODO: Make health less
                 }
             }
@@ -109,6 +110,26 @@ public class SceneController : MonoBehaviour
             }
         }
         //end of enemies
+        
+        //humans
+        if (humans.Count > 0)
+        {
+            foreach (GameObject human in humans)
+            {
+                if (pBox.CheckOverlap(human.GetComponent<ColliderAABB>()))
+                {
+                    print("HumanCOLLISION!!");
+                    //TODO: Make health less
+                }
+            }
+
+            if (player.position.z - humans[0].transform.position.z > 14)
+            {
+                Destroy(humans[0]);
+                humans.RemoveAt(0);
+            }
+        }
+        //end of humans
 
         //chunks
         

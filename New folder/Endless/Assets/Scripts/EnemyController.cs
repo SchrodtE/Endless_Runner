@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
     public Vector3 moveDir;
     public float moveForce = 0f;
 
+    public Vector3 pos;
+
 
 
     // Start is called before the first frame update
@@ -20,6 +22,8 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        pos = transform.position;
+
         moveDir = transform.right;
         
         rigid.velocity = moveDir * moveForce;
@@ -52,7 +56,23 @@ public class EnemyController : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(moveDir);
         }
 
-        
+        //limiter
+        if (pos.x >= 2)
+        {
+            pos.x = 2;
+        }
+        if (pos.x <= -2)
+        {
+            pos.x = -2;
+        }
+
+        if(pos.y <= 0.6)
+        {
+            pos.y = 0.6f;
+        }
+
+        transform.position = pos;
+
     }
 
         /**Vector3 ChooseDirection()

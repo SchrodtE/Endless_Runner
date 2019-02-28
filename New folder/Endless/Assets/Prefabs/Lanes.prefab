@@ -188,6 +188,8 @@ MonoBehaviour:
     type: 3}
   prefabEnemy: {fileID: 3553735095773550420, guid: e3a08fd828d31ab4b970df575f1a902d,
     type: 3}
+  prefabHuman: {fileID: 1868899331519649249, guid: 985fa5e798916634b802264edfe42b81,
+    type: 3}
 --- !u!114 &4116016168225420107
 MonoBehaviour:
   m_ObjectHideFlags: 0
