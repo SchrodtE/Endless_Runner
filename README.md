@@ -23,7 +23,7 @@ List of Assets
 (Item Pickup) - Machete Bike   X
 (Item Pickup) - Balloons   X
 (Item Pickup) - Coffee   X
-(Mutation Pickup) - Whatever makes Muscle Legs   X
+(Mutation Pickup) - Whatever makes Muscle Legs  ✓
 (Mutation Pickup) - Whatever makes Bunny Ears   X
 (Mutation Pickup) - Whatever makes Acid Spit   X
 (NPC Character) - Human  X
