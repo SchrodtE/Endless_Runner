@@ -8,9 +8,12 @@ public class SceneController : MonoBehaviour
     public GameObject prefabItem1;
     public GameObject prefabZomHealth;
     public GameObject prefabHealthPickup;
+
     public Transform player;
     public Transform weapon1;
+
     public bool hasBeenHit = false;
+
     public float countdown1 = 0;
     public float countdown2 = 0;
     public float countdown3 = 0;
@@ -18,6 +21,7 @@ public class SceneController : MonoBehaviour
     List<GameObject> chunks = new List<GameObject>();
     List<GameObject> item1s = new List<GameObject>();
     List<GameObject> heals = new List<GameObject>();
+
     static public List<GameObject> walls = new List<GameObject>();
     static public List<GameObject> enemies = new List<GameObject>();
     static public List<GameObject> humans = new List<GameObject>();
@@ -26,6 +30,7 @@ public class SceneController : MonoBehaviour
     static public List<GameObject> balloons = new List<GameObject>();
     static public List<GameObject> humheals = new List<GameObject>();
     static public List<GameObject> zomheals = new List<GameObject>();
+
     ColliderAABB pBox;
     ColliderAABB epBox;
     PlayerRun playerRef;
@@ -33,6 +38,7 @@ public class SceneController : MonoBehaviour
     PlayerRun weaponRef1;
     HumanityMeter humanityMeterRef;
     //HealthMeter healthMeterRef;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +53,8 @@ public class SceneController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {//update start
+
         //print(healthMeterRef.secondSlider.value);
         //print(countdown);
         if (playerRef.hasPower1 || playerRef.hasPower1b)
@@ -61,6 +68,7 @@ public class SceneController : MonoBehaviour
 
             }
         }
+        //Power2
         if (playerRef.hasPower2 || playerRef.hasPower2b)
         {
             countdown2 = countdown2 + Time.deltaTime;
@@ -71,6 +79,7 @@ public class SceneController : MonoBehaviour
                 playerRef.hasPower2b = false;
             }
         }
+        //Power3
         if (playerRef.hasPower3 || playerRef.hasPower3b)
         {
             countdown3 = countdown3 + Time.deltaTime;
@@ -81,7 +90,7 @@ public class SceneController : MonoBehaviour
                 playerRef.hasPower3b = false;
             }
         }
-
+        //chunk
         if (chunks.Count > 0)
         {
             if (player.position.z - chunks[0].transform.position.z > 14)
@@ -132,8 +141,6 @@ public class SceneController : MonoBehaviour
         //end of humans
 
         //chunks
-        
-
         while (chunks.Count < 5)
         {
             // spawn a new chunk
@@ -172,7 +179,7 @@ public class SceneController : MonoBehaviour
         }
         //end of walls
 
-        //
+        //item1
         if (item1s.Count > 0)
         {
             if (player.position.z - item1s[0].transform.position.z > 14)
@@ -181,7 +188,7 @@ public class SceneController : MonoBehaviour
                 item1s.RemoveAt(0);
             }
         }
-
+        //heals
         if (heals.Count > 0)
         {
             if(player.position.z - heals[0].transform.position.z > 14)
@@ -190,7 +197,7 @@ public class SceneController : MonoBehaviour
                 heals.RemoveAt(0);
             }
         }
-
+        //item1
         while (item1s.Count < 5)
         {
             // spawn a new item1
@@ -205,7 +212,9 @@ public class SceneController : MonoBehaviour
             item1s.Add(obj);
 
         }
+        //end item1
 
+        //heals
         while (heals.Count < 7)
         {
             // spawn a new heals
@@ -220,7 +229,9 @@ public class SceneController : MonoBehaviour
             heals.Add(obj);
 
         }
+        //end heals
 
+        //coffee
         if (coffees.Count > 0)
         {
             foreach (GameObject coffee in coffees)
@@ -242,7 +253,9 @@ public class SceneController : MonoBehaviour
                 }
             }
         }
-        //
+        //end coffee
+
+        //bike
         if (bikes.Count > 0)
         {
             foreach (GameObject bike in bikes)
@@ -255,7 +268,9 @@ public class SceneController : MonoBehaviour
                 }
             }
         }
-        //
+        //bike
+
+        //balloon
         if (balloons.Count > 0)
         {
             foreach (GameObject balloon in balloons)
@@ -277,6 +292,8 @@ public class SceneController : MonoBehaviour
                     //else print("No change!");
                 }
             }
-        }
-    }
-}
+        }//end balloon
+
+    }//end of update
+
+}//end of class
