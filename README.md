@@ -18,7 +18,7 @@ List of Assets
 (Human-ify Pickup) - Syringe   ✓
 (Human-ify Pickup) - Pill Bottle   ✓
 (Monster-ify Pickup) - Brain   X
-(Monster-ify Pickup) - Any Limb   X
+(Monster-ify Pickup) - Any Limb  ✓
 (Monster-ify Pickup) - Any Organ   X
 (Item Pickup) - Machete Bike   X
 (Item Pickup) - Balloons   X
