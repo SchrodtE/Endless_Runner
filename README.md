@@ -28,4 +28,4 @@ List of Assets
 (Mutation Pickup) - Whatever makes Acid Spit   ✓
 (NPC Character) - Human  X
 (NPC Character) - Monster  X
-(Main Character) - Andyogynous Person  X
+(Main Character) - Andyogynous Person  ✓
