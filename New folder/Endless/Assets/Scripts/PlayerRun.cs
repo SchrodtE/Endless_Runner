@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,6 +24,10 @@ public class PlayerRun : MonoBehaviour
     public static Mesh Player;
     public GameObject prefabWeapon1;
     public GameObject prefabWeapon2;
+    public GameObject projectile;
+
+    List<GameObject> bullets = new List<GameObject>();
+
     public static Mesh Weapon;
     SceneController powerLOL;
     SceneController controlRef;
@@ -40,7 +44,8 @@ public class PlayerRun : MonoBehaviour
     public float dashStoppingSpeed = 0.1f;
 
     private float currentDashTime;
-
+    
+    private float alpha = 1f;
 
 
 
@@ -168,8 +173,7 @@ public class PlayerRun : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire1"))
         {
-
-            Attack();
+            Attack2();
         }
 
         //limiter
@@ -192,5 +196,10 @@ public class PlayerRun : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
         }
+    }
+    
+    void Attack2()
+    {
+        GameObject obj = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
     }
 }
