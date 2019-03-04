@@ -30,7 +30,7 @@ public class PlayerRun : MonoBehaviour
 
     List<GameObject> bullets = new List<GameObject>();
 
-    public static Mesh Weapon;
+    //public static Mesh Weapon;
     
     SceneController powerLOL;
     SceneController controlRef;
