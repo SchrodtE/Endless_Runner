@@ -188,6 +188,8 @@ MonoBehaviour:
     type: 3}
   prefabEnemy: {fileID: 3553735095773550420, guid: e3a08fd828d31ab4b970df575f1a902d,
     type: 3}
+  prefabHuman: {fileID: 1868899331519649249, guid: 985fa5e798916634b802264edfe42b81,
+    type: 3}
 --- !u!114 &4116016168225420107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8414990638429420787}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawn1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -352,10 +354,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 121245513380651911}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawn3
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -382,10 +384,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2653639692208223787}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawn2
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -412,10 +414,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 552622425437919405}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawn4
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -624,7 +626,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5150282130100247237}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawn3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -654,10 +656,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2698710810780095115}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawn5
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -775,10 +777,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3691238258479451718}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawn1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -805,7 +807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5809776495545654008}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawn5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -835,7 +837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5557432082192162972}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawn4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -956,7 +958,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3453823010432185744}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawn2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
