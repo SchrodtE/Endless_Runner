@@ -308,22 +308,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64202413ea0526a429e45d01777f4c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
   jump: {x: 0, y: 0, z: 0}
   pos: {x: 0, y: 0, z: 0}
   weaponPos1: {x: 0, y: 0, z: 0}
   weaponPos2: {x: 0, y: 0, z: 0}
+  speed: 10
   jumpForce: 5
   attackRange: 3
+  hoverNum: 0
   hasPower1: 0
   hasPower2: 0
   hasPower3: 0
   hasPower1b: 0
   hasPower2b: 0
   hasPower3b: 0
-  hoverNum: 0
   prefabWeapon1: {fileID: 0}
   prefabWeapon2: {fileID: 1648206812250503273, guid: 0e8a76de904f8c74da651d4e48c8b4c7,
+    type: 3}
+  projectile: {fileID: 177457219882214171, guid: d984078e83b1df0489a05fef80042efb,
     type: 3}
   maxJumps: 2
   moveDirection: {x: 0, y: 0, z: 0}
@@ -620,8 +622,6 @@ MonoBehaviour:
   prefabChunk: {fileID: 1850253182045503114, guid: 8dfb7ca69c0ac1740854bc53f7b6e9c8,
     type: 3}
   prefabItem1: {fileID: 0}
-  prefabZomHealth: {fileID: 0}
-  prefabHealthPickup: {fileID: 0}
   player: {fileID: 125715221}
   weapon1: {fileID: 0}
   hasBeenHit: 0

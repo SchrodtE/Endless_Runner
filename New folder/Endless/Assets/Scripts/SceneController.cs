@@ -6,8 +6,7 @@ public class SceneController : MonoBehaviour
 {
     public GameObject prefabChunk;
     public GameObject prefabItem1;
-    public GameObject prefabZomHealth;
-    public GameObject prefabHealthPickup;
+   
 
     public Transform player;
     public Transform weapon1;
@@ -19,8 +18,7 @@ public class SceneController : MonoBehaviour
     public float countdown3 = 0;
 
     List<GameObject> chunks = new List<GameObject>();
-    List<GameObject> item1s = new List<GameObject>();
-    List<GameObject> heals = new List<GameObject>();
+
 
     static public List<GameObject> walls = new List<GameObject>();
     static public List<GameObject> enemies = new List<GameObject>();
@@ -30,6 +28,11 @@ public class SceneController : MonoBehaviour
     static public List<GameObject> balloons = new List<GameObject>();
     static public List<GameObject> humheals = new List<GameObject>();
     static public List<GameObject> zomheals = new List<GameObject>();
+    static public List<GameObject> zombifies = new List<GameObject>();
+    static public List<GameObject> humifies = new List<GameObject>();
+    static public List<GameObject> monlegs = new List<GameObject>();
+    static public List<GameObject> ears = new List<GameObject>();
+    static public List<GameObject> acids = new List<GameObject>();
 
     ColliderAABB pBox;
     ColliderAABB epBox;
@@ -183,57 +186,133 @@ public class SceneController : MonoBehaviour
         }
         //end of walls
 
-        //item1
-        if (item1s.Count > 0)
+        if (coffees.Count > 0)
         {
-            if (player.position.z - item1s[0].transform.position.z > 14)
+
+            if (player.position.z - coffees[0].transform.position.z > 14)
             {
-                Destroy(item1s[0]);
-                item1s.RemoveAt(0);
+                Destroy(coffees[0]);
+                coffees.RemoveAt(0);
             }
         }
-        //heals
-        if (heals.Count > 0)
+
+        if (balloons.Count > 0)
         {
-            if(player.position.z - heals[0].transform.position.z > 14)
+
+            if (player.position.z - balloons[0].transform.position.z > 14)
             {
-                Destroy(heals[0]);
-                heals.RemoveAt(0);
+                Destroy(balloons[0]);
+                balloons.RemoveAt(0);
             }
         }
-        //item1
-        while (item1s.Count < 5)
-        {
-            // spawn a new item1
-            Vector3 position = Vector3.zero;
 
-            if (item1s.Count > 0)
+        if (bikes.Count > 0)
+        {
+
+            if (player.position.z - bikes[0].transform.position.z > 14)
             {
-                position = item1s[item1s.Count - 1].transform.Find("Connector").position;
+                Destroy(bikes[0]);
+                bikes.RemoveAt(0);
             }
-
-            GameObject obj = Instantiate(prefabChunk, position, Quaternion.identity);
-            item1s.Add(obj);
-
         }
-        //end item1
 
-        //heals
-        while (heals.Count < 7)
+        if (humheals.Count > 0)
         {
-            // spawn a new heals
-            Vector3 position = Vector3.zero;
-
-           /** if (heals.Count > 0)
+            foreach (GameObject humheal in humheals)
             {
-                position = heals[heals.Count - 1].transform.Find("Connector").position;
-            }**/
-
-            GameObject obj = Instantiate(prefabChunk, position, Quaternion.identity);
-            heals.Add(obj);
-
+                if (pBox.CheckOverlap(humheal.GetComponent<ColliderAABB>()))
+                { print("go go gadget ouch"); }
+            }
+            if (player.position.z - humheals[0].transform.position.z > 14)
+            {
+                Destroy(humheals[0]);
+                humheals.RemoveAt(0);
+            }
         }
-        //end heals
+
+        if (zomheals.Count > 0)
+        {
+            foreach (GameObject zomheal in zomheals)
+            {
+                if (pBox.CheckOverlap(zomheal.GetComponent<ColliderAABB>()))
+                { print("go go gadget ouch"); }
+            }
+            if (player.position.z - zomheals[0].transform.position.z > 14)
+            {
+                Destroy(zomheals[0]);
+                zomheals.RemoveAt(0);
+            }
+        }
+
+        if (humifies.Count > 0)
+        {
+            foreach (GameObject humify in humifies)
+            {
+                if (pBox.CheckOverlap(humify.GetComponent<ColliderAABB>()))
+                { print("go go gadget ouch"); }
+            }
+            if (player.position.z - humifies[0].transform.position.z > 14)
+            {
+                Destroy(humifies[0]);
+                humifies.RemoveAt(0);
+            }
+        }
+
+        if (zombifies.Count > 0)
+        {
+            foreach (GameObject zombify in zombifies)
+            {
+                if (pBox.CheckOverlap(zombify.GetComponent<ColliderAABB>()))
+                { print("go go gadget ouch"); }
+            }
+            if (player.position.z - zombifies[0].transform.position.z > 14)
+            {
+                Destroy(zombifies[0]);
+                zombifies.RemoveAt(0);
+            }
+        }
+
+        if (acids.Count > 0)
+        {
+            foreach (GameObject acid in acids)
+            {
+                if (pBox.CheckOverlap(acid.GetComponent<ColliderAABB>()))
+                { print("go go gadget ouch"); }
+            }
+            if (player.position.z - acids[0].transform.position.z > 14)
+            {
+                Destroy(acids[0]);
+                acids.RemoveAt(0);
+            }
+        }
+
+        if (monlegs.Count > 0)
+        {
+            foreach (GameObject monleg in monlegs)
+            {
+                if (pBox.CheckOverlap(monleg.GetComponent<ColliderAABB>()))
+                { print("go go gadget ouch"); }
+            }
+            if (player.position.z - monlegs[0].transform.position.z > 14)
+            {
+                Destroy(monlegs[0]);
+                monlegs.RemoveAt(0);
+            }
+        }
+
+        if (ears.Count > 0)
+        {
+            foreach (GameObject ear in ears)
+            {
+                if (pBox.CheckOverlap(ear.GetComponent<ColliderAABB>()))
+                { print("go go gadget ouch"); }
+            }
+            if (player.position.z - ears[0].transform.position.z > 14)
+            {
+                Destroy(ears[0]);
+                ears.RemoveAt(0);
+            }
+        }
 
         //coffee
         if (coffees.Count > 0)

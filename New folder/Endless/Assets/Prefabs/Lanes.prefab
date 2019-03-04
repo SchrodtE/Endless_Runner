@@ -131,8 +131,8 @@ GameObject:
   m_Component:
   - component: {fileID: 151555669207433765}
   - component: {fileID: 4865952020206862938}
-  - component: {fileID: 4116016168225420107}
-  - component: {fileID: 4094249503422871385}
+  - component: {fileID: 4273717915067182772}
+  - component: {fileID: 8848743649127522768}
   m_Layer: 0
   m_Name: Lanes
   m_TagString: Untagged
@@ -190,7 +190,7 @@ MonoBehaviour:
     type: 3}
   prefabHuman: {fileID: 1868899331519649249, guid: 985fa5e798916634b802264edfe42b81,
     type: 3}
---- !u!114 &4116016168225420107
+--- !u!114 &4273717915067182772
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,13 +202,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 065603e2407c3334491990bf26be91ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCoffee: {fileID: 351281713688763446, guid: 05aeb3996a996224d840b7252952e907,
+  prefabItem: {fileID: 9149936014999546700, guid: 9bc798bede8f66f4daada8eb3552fe7b,
     type: 3}
-  prefabBalloon: {fileID: 1518283458215109630, guid: 725097a6d39603b4daad7d07b81b05fb,
+  prefabCoffee: {fileID: 5021483720172675942, guid: d65c7f1c8ad9e6f45af696825acd0ba3,
     type: 3}
-  prefabBike: {fileID: 7895549283481362460, guid: c542b20e14ee66e4788c56dcfd2b5e2c,
+  prefabBalloon: {fileID: 764726534317424731, guid: 7317c62db41a1a844b2c8e53a81f083c,
     type: 3}
---- !u!114 &4094249503422871385
+  prefabBike: {fileID: 4494755300779922747, guid: 71d690bea5550e144ac9374e408d4edd,
+    type: 3}
+  prefabHumHealth1: {fileID: 4113084720841335312, guid: 0bc96522e1be2154c87e4cbc4f4b137c,
+    type: 3}
+  prefabHumHealth2: {fileID: 4113084720841335312, guid: 0bc96522e1be2154c87e4cbc4f4b137c,
+    type: 3}
+  prefabHumHealth3: {fileID: 4113084720841335312, guid: 0bc96522e1be2154c87e4cbc4f4b137c,
+    type: 3}
+  prefabZomHealth1: {fileID: 4759216796098268197, guid: 8e97634630423224290765128d945451,
+    type: 3}
+  prefabZomHealth2: {fileID: 4759216796098268197, guid: 8e97634630423224290765128d945451,
+    type: 3}
+  prefabZomHealth3: {fileID: 4759216796098268197, guid: 8e97634630423224290765128d945451,
+    type: 3}
+  prefabZombify1: {fileID: 1692568006219244546, guid: af0cea566332df0499ee2bc0f0f8d0f9,
+    type: 3}
+  prefabZombify2: {fileID: 77753114339934668, guid: f2afb1fecb9ed554994ca56157f9df11,
+    type: 3}
+  prefabZombify3: {fileID: 1742412238155085435, guid: 3a0432569ada5374cb45c4104c7577f7,
+    type: 3}
+  prefabHumify1: {fileID: 7701443060045529180, guid: bfd5791892b0a9546815730458dcef62,
+    type: 3}
+  prefabHumify2: {fileID: 4037198023836535480, guid: 212814da1b8c6fd49b5f1145d06196dc,
+    type: 3}
+  prefabHumify3: {fileID: 6876513070435664250, guid: d657a1d97cececc469d758d6a50aae8b,
+    type: 3}
+  prefabAcid: {fileID: 3555183719665994612, guid: 234310ade5212f94b9acca62923caabb,
+    type: 3}
+  prefabMonLegs: {fileID: 3774496565832602868, guid: 93a02003d9c43a643ac692df7d741ce5,
+    type: 3}
+  prefabEar: {fileID: 3135332474408530999, guid: 06ae77f85da34f8469a44f2e5db2f289,
+    type: 3}
+--- !u!114 &8848743649127522768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,13 +249,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1850253182045503114}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac64e59349dfebd408e63634c1537edf, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ce81e39a303f7848b3e82ecd6b7c721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabHumHealth: {fileID: 6395939702787971822, guid: 29fccca61c0b53948842d7be85489061,
-    type: 3}
-  prefabZomHealth: {fileID: 8706169300343059175, guid: d318c12e03b7ae54abb563e3a679acd0,
-    type: 3}
+  halfSize: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!1 &1853769163601726535
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8414990638429420787}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Spawn1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -354,10 +383,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 121245513380651911}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Spawn3
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -384,10 +413,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2653639692208223787}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Spawn2
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -414,10 +443,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 552622425437919405}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Spawn4
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -626,7 +655,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5150282130100247237}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Spawn3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -656,10 +685,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2698710810780095115}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Spawn5
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -777,10 +806,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3691238258479451718}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Spawn1
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -807,7 +836,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5809776495545654008}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Spawn5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -837,7 +866,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5557432082192162972}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Spawn4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -958,7 +987,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3453823010432185744}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Spawn2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}

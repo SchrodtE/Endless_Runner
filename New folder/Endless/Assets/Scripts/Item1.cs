@@ -4,9 +4,25 @@ using UnityEngine;
 
 public class Item1 : MonoBehaviour
 {
+    public GameObject prefabItem;
     public GameObject prefabCoffee;
     public GameObject prefabBalloon;
     public GameObject prefabBike;
+    public GameObject prefabHumHealth1;
+    public GameObject prefabHumHealth2;
+    public GameObject prefabHumHealth3;
+    public GameObject prefabZomHealth1;
+    public GameObject prefabZomHealth2;
+    public GameObject prefabZomHealth3;
+    public GameObject prefabZombify1;
+    public GameObject prefabZombify2;
+    public GameObject prefabZombify3;
+    public GameObject prefabHumify1;
+    public GameObject prefabHumify2;
+    public GameObject prefabHumify3;
+    public GameObject prefabAcid;
+    public GameObject prefabMonLegs;
+    public GameObject prefabEar;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,34 +30,146 @@ public class Item1 : MonoBehaviour
 
         //CollisionManager.walls.Add(collider);
 
-        SpawnItemAt("Spawn1 (1)");
-        SpawnItemAt("Spawn2 (1)");
-        SpawnItemAt("Spawn3 (1)");
-        SpawnItemAt("Spawn4 (1)");
-        SpawnItemAt("Spawn5 (1)");
+        var spawnLocation = Random.Range(0, 5);
+
+        if (spawnLocation == 0) SpawnItemAt("Spawn1 (1)");
+        if (spawnLocation == 1) SpawnItemAt("Spawn2 (1)");
+        if (spawnLocation == 2) SpawnItemAt("Spawn3 (1)");
+        if (spawnLocation == 3) SpawnItemAt("Spawn4 (1)");
+        if (spawnLocation == 4) SpawnItemAt("Spawn5 (1)");
     }
 
     private void SpawnItemAt(string name)
     {
-        if (Random.Range(0, 100) < 3)
+        if (Random.Range(0, 100) < 40)
         {
-            if (Random.Range(0, 4) == 1)
+            var itemType = Random.Range(0, 100);
+            
+            if (itemType < 5)
             {
                 Vector3 position = transform.Find(name).position;
-                GameObject obj1 = Instantiate(prefabBalloon, position, Quaternion.identity);
-                SceneController.balloons.Add(obj1);
+                GameObject obj = Instantiate(prefabBalloon, position, Quaternion.identity);
+                SceneController.balloons.Add(obj);
+                
             }
-            else if (Random.Range(1, 3) == 2)
+            if (itemType >= 5 && itemType < 10)
             {
                 Vector3 position = transform.Find(name).position;
-                GameObject obj2 = Instantiate(prefabCoffee, position, Quaternion.identity);
-                SceneController.coffees.Add(obj2);
+                GameObject obj = Instantiate(prefabCoffee, position, Quaternion.identity);
+                SceneController.coffees.Add(obj);
             }
-            else
+            if (itemType >= 10 && itemType < 15)
             {
                 Vector3 position = transform.Find(name).position;
-                GameObject obj3 = Instantiate(prefabBike, position, Quaternion.identity);
-                SceneController.bikes.Add(obj3);
+                GameObject obj = Instantiate(prefabBike, position, Quaternion.identity);
+                SceneController.bikes.Add(obj);
+            }
+            if (itemType >= 15 && itemType < 30)
+            {
+                var humHealType = Random.Range(0, 3);
+
+                Vector3 position = transform.Find(name).position;
+
+                if (humHealType == 0)
+                    {
+                    GameObject obj1 = Instantiate(prefabHumHealth1, position, Quaternion.identity);
+                     SceneController.humheals.Add(obj1);
+                    }
+                if (humHealType == 1)
+                {
+                    GameObject obj2 = Instantiate(prefabHumHealth2, position, Quaternion.identity);
+                                    SceneController.humheals.Add(obj2);
+                }
+                if (humHealType == 2)
+                {
+                    GameObject obj3 = Instantiate(prefabHumHealth3, position, Quaternion.identity);
+                                    SceneController.humheals.Add(obj3);
+                }
+
+            }
+            if (itemType >= 30 && itemType < 45)
+            {
+                var zomHealType = Random.Range(0, 3);
+
+                Vector3 position = transform.Find(name).position;
+
+                if (zomHealType == 0)
+                {
+                    GameObject obj1 = Instantiate(prefabZomHealth1, position, Quaternion.identity);
+                    SceneController.zomheals.Add(obj1);
+                }
+                if (zomHealType == 1)
+                {
+                    GameObject obj2 = Instantiate(prefabZomHealth2, position, Quaternion.identity);
+                    SceneController.zomheals.Add(obj2);
+                }
+                if (zomHealType == 2)
+                {
+                    GameObject obj3 = Instantiate(prefabZomHealth3, position, Quaternion.identity);
+                    SceneController.zomheals.Add(obj3);
+                }
+            }
+            if (itemType >= 45 && itemType < 65)
+            {
+                var zombifyType = Random.Range(0, 3);
+
+                Vector3 position = transform.Find(name).position;
+
+                if (zombifyType == 0)
+                {
+                    GameObject obj1 = Instantiate(prefabZombify1, position, Quaternion.identity);
+                    SceneController.zombifies.Add(obj1);
+                }
+                if (zombifyType == 1)
+                {
+                    GameObject obj2 = Instantiate(prefabZombify2, position, Quaternion.identity);
+                    SceneController.zombifies.Add(obj2);
+                }
+                if (zombifyType == 2)
+                {
+                    GameObject obj3 = Instantiate(prefabZombify3, position, Quaternion.identity);
+                    SceneController.zombifies.Add(obj3);
+                }
+            }
+            if (itemType >= 65 && itemType < 85)
+            {
+                var humifyType = Random.Range(0, 3);
+
+                Vector3 position = transform.Find(name).position;
+
+                if (humifyType == 0)
+                {
+                    GameObject obj1 = Instantiate(prefabHumify1, position, Quaternion.identity);
+                    SceneController.humifies.Add(obj1);
+                }
+                if (humifyType == 1)
+                {
+                    GameObject obj2 = Instantiate(prefabHumify2, position, Quaternion.identity);
+                    SceneController.humifies.Add(obj2);
+                }
+                if (humifyType == 2)
+                {
+                    GameObject obj3 = Instantiate(prefabHumify3, position, Quaternion.identity);
+                    SceneController.humifies.Add(obj3);
+                }
+            }
+            if (itemType >= 85 && itemType < 90)
+            {
+                Vector3 position = transform.Find(name).position;
+                GameObject obj = Instantiate(prefabMonLegs, position, Quaternion.identity);
+                SceneController.monlegs.Add(obj);
+            }
+            if (itemType >= 90 && itemType < 95)
+            {
+                Vector3 position = transform.Find(name).position;
+                GameObject obj = Instantiate(prefabEar, position, Quaternion.identity);
+                SceneController.ears.Add(obj);
+            }
+            if (itemType >= 95 && itemType < 100)
+            {
+                Vector3 position = transform.Find(name).position;
+                GameObject obj = Instantiate(prefabAcid, position, Quaternion.identity);
+                SceneController.acids.Add(obj);
             }
         }
     }

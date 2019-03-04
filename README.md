@@ -17,14 +17,14 @@ List of Assets
 (Human-ify Pickup) - Vial   ✓
 (Human-ify Pickup) - Syringe   ✓
 (Human-ify Pickup) - Pill Bottle   ✓
-(Monster-ify Pickup) - Brain  ✓
+(Monster-ify Pickup) - Brain   X
 (Monster-ify Pickup) - Any Limb  ✓
-(Monster-ify Pickup) - Any Organ   ✓
+(Monster-ify Pickup) - Any Organ   X
 (Item Pickup) - Machete Bike   ✓
 (Item Pickup) - Balloons   ✓
 (Item Pickup) - Coffee   ✓
 (Mutation Pickup) - Whatever makes Muscle Legs  ✓
-(Mutation Pickup) - Whatever makes Bunny Ears   ✓
+(Mutation Pickup) - Whatever makes Bunny Ears   X
 (Mutation Pickup) - Whatever makes Acid Spit   ✓
 (NPC Character) - Human  X
 (NPC Character) - Monster  X
