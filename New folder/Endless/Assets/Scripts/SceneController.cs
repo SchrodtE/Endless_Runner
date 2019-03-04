@@ -32,7 +32,7 @@ public class SceneController : MonoBehaviour
     ColliderAABB wBox1;
     PlayerRun weaponRef1;
     HumanityMeter humanityMeterRef;
-    //HealthMeter healthMeterRef;
+    HealthMeter healthMeterRef;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +42,7 @@ public class SceneController : MonoBehaviour
         //wBox1 = GameObject.Find("Weapon").GetComponent<ColliderAABB>();
         //weaponRef1 = GameObject.Find("Weapon").GetComponent<PlayerRun>();
         humanityMeterRef = GameObject.Find("Slider").GetComponent<HumanityMeter>();
-        //healthMeterRef = GameObject.Find("Slider").GetComponent<HealthMeter>();
+        healthMeterRef = GameObject.Find("OtherSlider").GetComponent<HealthMeter>();
     }
 
     // Update is called once per frame
@@ -100,6 +100,7 @@ public class SceneController : MonoBehaviour
                 {
                     print("ZomCOLLISION!!");
                     //TODO: Make health less
+                    healthMeterRef.secondSlider.value--;
                 }
             }
 
@@ -107,6 +108,7 @@ public class SceneController : MonoBehaviour
             {
                 Destroy(enemies[0]);
                 enemies.RemoveAt(0);
+
             }
         }
         //end of enemies
@@ -120,6 +122,7 @@ public class SceneController : MonoBehaviour
                 {
                     print("HumanCOLLISION!!");
                     //TODO: Make health less
+                    healthMeterRef.secondSlider.value--;
                 }
             }
 
