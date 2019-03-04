@@ -5,10 +5,11 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private float moveRange;
-    private Rigidbody rigid;
-    public Vector3 moveDir;
     public float moveForce = 0f;
 
+    private Rigidbody rigid;
+    public Vector3 moveDir;
+    
     public Vector3 pos;
 
 
@@ -21,13 +22,14 @@ public class EnemyController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {//start update
         pos = transform.position;
 
         moveDir = transform.right;
         
         rigid.velocity = moveDir * moveForce;
 
+        //picks how long the raycast is
         int range = Random.Range(0, 3);
 
         if (range == 0)
@@ -70,10 +72,10 @@ public class EnemyController : MonoBehaviour
         {
             pos.y = 0.6f;
         }
-
+        //end limiter
         transform.position = pos;
 
-    }
+    }//end update
 
         /**Vector3 ChooseDirection()
         {

@@ -1,17 +1,19 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerRun : MonoBehaviour
 {
 
-    public float speed = 10;
     public Vector3 jump;
     public Vector3 pos;
     public Vector3 weaponPos1;
     public Vector3 weaponPos2;
+
+    public float speed = 10;
     public float jumpForce = 2;
     public float attackRange = 3;
+    public float hoverNum = 0;
 
     public bool hasPower1 = false;
     public bool hasPower2 = false;
@@ -19,12 +21,17 @@ public class PlayerRun : MonoBehaviour
     public bool hasPower1b = false;
     public bool hasPower2b = false;
     public bool hasPower3b = false;
-
-    public float hoverNum = 0;
+ 
     public static Mesh Player;
+    public static Mesh Weapon;
     public GameObject prefabWeapon1;
     public GameObject prefabWeapon2;
-    public static Mesh Weapon;
+    public GameObject projectile;
+
+    List<GameObject> bullets = new List<GameObject>();
+
+    //public static Mesh Weapon;
+    
     SceneController powerLOL;
     SceneController controlRef;
     Rigidbody rb;
@@ -40,7 +47,8 @@ public class PlayerRun : MonoBehaviour
     public float dashStoppingSpeed = 0.1f;
 
     private float currentDashTime;
-
+    
+    private float alpha = 1f;
 
 
 
@@ -65,7 +73,8 @@ public class PlayerRun : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {//start update
+
         //Debug.DrawRay(transform.position)
         pos = transform.position;
         pos.z += speed * Time.deltaTime;
@@ -73,6 +82,8 @@ public class PlayerRun : MonoBehaviour
 
         //Vector3 weaponPos2 = transform.position;
         //weaponPos2.z = pos.z;
+
+        //power 2
         if (hasPower2)
         {
             weaponPos1.x = pos.x;
@@ -89,7 +100,8 @@ public class PlayerRun : MonoBehaviour
         {
             pos.y = 2;
         }
-        //bryan's stuff
+
+        //power1
         if (hasPower1b)
         {
             if (Input.GetButtonDown("Fire2"))
@@ -111,11 +123,12 @@ public class PlayerRun : MonoBehaviour
         }
 
 
-
+        //jump logic
         if (pos.y <= .35)
         {
             isGrounded = true;
         }
+
         if (Input.GetButtonDown("Jump"))
         {
             if (hasPower3 && pos.y <= .35)
@@ -143,8 +156,10 @@ public class PlayerRun : MonoBehaviour
                 rb.velocity = Vector3.up * jumpForce;
 
             }
-
         }
+        //end jump
+
+        //go left
         if (Input.GetButtonDown("Left"))
         {
             if (hasPower1)
@@ -156,6 +171,8 @@ public class PlayerRun : MonoBehaviour
             pos.x -= 1;
             rb.velocity = Vector3.zero;
         }
+
+        //goright
         if (Input.GetButtonDown("Right"))
         {
             if (hasPower1)
@@ -166,10 +183,11 @@ public class PlayerRun : MonoBehaviour
             pos.x += 1;
             rb.velocity = Vector3.zero;
         }
+
+        //attack
         if (Input.GetButtonDown("Fire1"))
         {
-
-            Attack();
+            Attack2();
         }
 
         //limiter
@@ -184,7 +202,8 @@ public class PlayerRun : MonoBehaviour
 
         transform.position = pos;
 
-    }
+    }//end update
+
     void Attack()
     {
         RaycastHit hit;
@@ -192,5 +211,10 @@ public class PlayerRun : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
         }
+    }
+    
+    void Attack2()
+    {
+        GameObject obj = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
     }
 }

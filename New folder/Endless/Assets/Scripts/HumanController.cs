@@ -19,7 +19,7 @@ public class HumanController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {//start update
 
         pos = transform.position;
 
@@ -55,7 +55,7 @@ public class HumanController : MonoBehaviour
 
         transform.position = pos;
 
-    }
+    }//end update
 
     /**Vector3 ChooseDirection()
     {
