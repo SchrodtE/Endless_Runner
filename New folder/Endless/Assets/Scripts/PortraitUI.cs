@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,27 +11,30 @@ public class PortraitUI : MonoBehaviour
     public Sprite m_Sprite;
     public Sprite n_Sprite;
     public Sprite o_Sprite;
+    
+    HumanityMeter humanityMeterRef;
 
     void Start()
     {
+        humanityMeterRef = GameObject.Find("Slider").GetComponent<HumanityMeter>();
         //Fetch the Image from the GameObject
         m_Image = GetComponent<Image>();
     }
 
     void Update()
     {
-        //Press space to change the Sprite of the Image
-        if (Input.GetKey(KeyCode.Space))
+        if (humanityMeterRef.mainSlider.value <= 40)
         {
             m_Image.sprite = m_Sprite;
         }
-        if (Input.GetKey(KeyCode.A))
+        else if (humanityMeterRef.mainSlider.value >= 60)
         {
             m_Image.sprite = n_Sprite;
         }
-        if (Input.GetKey(KeyCode.D))
+        else
         {
             m_Image.sprite = o_Sprite;
         }
+
     }
 }

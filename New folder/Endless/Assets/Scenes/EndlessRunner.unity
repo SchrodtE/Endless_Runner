@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -628,6 +628,9 @@ MonoBehaviour:
   countdown1: 0
   countdown2: 0
   countdown3: 0
+  m_Sprite: {fileID: 0}
+  n_Sprite: {fileID: 0}
+  o_Sprite: {fileID: 0}
 --- !u!1 &623235518
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,6 +931,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainSlider: {fileID: 2138302007}
+  MaxHealth: 500
+  Fill: {fileID: 1006481431}
+  MaxHealthColor: {r: 0, g: 1, b: 0, a: 1}
+  MinHealthColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &836759407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,7 +1397,7 @@ GameObject:
   - component: {fileID: 1697525055}
   - component: {fileID: 1697525057}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: Portrait
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1412,7 +1419,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 374.7, y: -164.6}
+  m_AnchoredPosition: {x: 454.3, y: -164.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1697525055
@@ -1464,9 +1471,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc35ffdcf0379c4297c3447fa5d9a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 6b1992e8e33283140bd0994c5a0d477a, type: 3}
-  n_Sprite: {fileID: 21300000, guid: 1e1bc3379a0e5a346bb8276be0b80964, type: 3}
-  o_Sprite: {fileID: 21300000, guid: 889d5d8b8b80ac3429bb0d1156d21b9a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e1bc3379a0e5a346bb8276be0b80964, type: 3}
+  n_Sprite: {fileID: 21300000, guid: 889d5d8b8b80ac3429bb0d1156d21b9a, type: 3}
+  o_Sprite: {fileID: 21300000, guid: 6b1992e8e33283140bd0994c5a0d477a, type: 3}
 --- !u!1 &1729368626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,6 +1739,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainSlider: {fileID: 2138302007}
+  MaxHealth: 500
+  Fill: {fileID: 0}
+  MaxHealthColor: {r: 0, g: 1, b: 0, a: 1}
+  MinHealthColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &7744480665325205193
 PrefabInstance:
   m_ObjectHideFlags: 0

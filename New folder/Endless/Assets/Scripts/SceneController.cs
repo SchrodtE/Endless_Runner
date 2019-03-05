@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +16,10 @@ public class SceneController : MonoBehaviour
     public float countdown1 = 0;
     public float countdown2 = 0;
     public float countdown3 = 0;
+    
+    public Sprite m_Sprite;
+    public Sprite n_Sprite;
+    public Sprite o_Sprite;
 
     List<GameObject> chunks = new List<GameObject>();
 
@@ -41,6 +45,7 @@ public class SceneController : MonoBehaviour
     PlayerRun weaponRef1;
     HumanityMeter humanityMeterRef;
     HealthMeter healthMeterRef;
+    PortraitUI portraitUIRef;
 
     //HealthMeter healthMeterRef;
     // Start is called before the first frame update
@@ -53,12 +58,16 @@ public class SceneController : MonoBehaviour
         //weaponRef1 = GameObject.Find("Weapon").GetComponent<PlayerRun>();
         humanityMeterRef = GameObject.Find("Slider").GetComponent<HumanityMeter>();
         healthMeterRef = GameObject.Find("OtherSlider").GetComponent<HealthMeter>();
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {//update start
-
+        
+        
+        //Press space to change the Sprite of the Image
         //print(healthMeterRef.secondSlider.value);
         //print(countdown);
         if (playerRef.hasPower1 || playerRef.hasPower1b)
@@ -113,7 +122,10 @@ public class SceneController : MonoBehaviour
                 {
                     print("ZomCOLLISION!!");
                     //TODO: Make health less
-                    healthMeterRef.secondSlider.value--;
+                    if (humanityMeterRef.mainSlider.value <= 40)
+                    {
+                        healthMeterRef.secondSlider.value--;
+                    }
                 }
             }
 
@@ -135,7 +147,10 @@ public class SceneController : MonoBehaviour
                 {
                     print("HumanCOLLISION!!");
                     //TODO: Make health less
-                    healthMeterRef.secondSlider.value--;
+                    if (humanityMeterRef.mainSlider.value >= 60)
+                    {
+                        healthMeterRef.secondSlider.value--;
+                    }
                 }
             }
 
@@ -249,7 +264,12 @@ public class SceneController : MonoBehaviour
             foreach (GameObject humify in humifies)
             {
                 if (pBox.CheckOverlap(humify.GetComponent<ColliderAABB>()))
-                { print("go go gadget ouch"); }
+                {
+                    print("go go gadget ouch");
+                    humanityMeterRef.mainSlider.value -= 1;
+                
+                }
+                
             }
             if (player.position.z - humifies[0].transform.position.z > 14)
             {
@@ -263,7 +283,11 @@ public class SceneController : MonoBehaviour
             foreach (GameObject zombify in zombifies)
             {
                 if (pBox.CheckOverlap(zombify.GetComponent<ColliderAABB>()))
-                { print("go go gadget ouch"); }
+                {
+                    print("go go gadget ouch"); 
+                    humanityMeterRef.mainSlider.value += 1;
+                
+                }
             }
             if (player.position.z - zombifies[0].transform.position.z > 14)
             {
@@ -277,7 +301,14 @@ public class SceneController : MonoBehaviour
             foreach (GameObject acid in acids)
             {
                 if (pBox.CheckOverlap(acid.GetComponent<ColliderAABB>()))
-                { print("go go gadget ouch"); }
+                { 
+                    print("go go gadget ouch");
+                    if (humanityMeterRef.mainSlider.value >= 60)
+                    {
+                        print("monster");
+                        playerRef.hasPower2b = true;
+                    }
+                }
             }
             if (player.position.z - acids[0].transform.position.z > 14)
             {
@@ -291,7 +322,14 @@ public class SceneController : MonoBehaviour
             foreach (GameObject monleg in monlegs)
             {
                 if (pBox.CheckOverlap(monleg.GetComponent<ColliderAABB>()))
-                { print("go go gadget ouch"); }
+                { 
+                    print("go go gadget ouch");
+                    if (humanityMeterRef.mainSlider.value >= 60)
+                    {
+                        print("monster");
+                        playerRef.hasPower1b = true;
+                    }
+                }
             }
             if (player.position.z - monlegs[0].transform.position.z > 14)
             {
@@ -305,15 +343,22 @@ public class SceneController : MonoBehaviour
             foreach (GameObject ear in ears)
             {
                 if (pBox.CheckOverlap(ear.GetComponent<ColliderAABB>()))
-                { print("go go gadget ouch"); }
+                { 
+                    print("go go gadget ouch");
+                    if (humanityMeterRef.mainSlider.value >= 60)
+                    {
+                        print("monster");
+                        playerRef.hasPower3b = true;
+                    }
+                }
+                if (player.position.z - ears[0].transform.position.z > 14)
+                {
+                    Destroy(ears[0]);
+                    ears.RemoveAt(0);
+                }
             }
-            if (player.position.z - ears[0].transform.position.z > 14)
-            {
-                Destroy(ears[0]);
-                ears.RemoveAt(0);
-            }
-        }
 
+        }
         //coffee
         if (coffees.Count > 0)
         {
@@ -328,11 +373,7 @@ public class SceneController : MonoBehaviour
                         print("human");
                         playerRef.hasPower1 = true;
                     }
-                    else if (humanityMeterRef.mainSlider.value >= 60)
-                    {
-                        print("monster");
-                        playerRef.hasPower1b = true;
-                    }
+
                 }
             }
         }
@@ -347,7 +388,11 @@ public class SceneController : MonoBehaviour
                 {
                     print("Bike Collision!");
                     countdown2 = 0;
-                    playerRef.hasPower2 = true;
+                    if (humanityMeterRef.mainSlider.value <= 40)
+                    {
+                        print("human");
+                        playerRef.hasPower2 = true;
+                    }
                 }
             }
         }
@@ -366,11 +411,6 @@ public class SceneController : MonoBehaviour
                     {
                         print("human");
                         playerRef.hasPower3 = true;
-                    }
-                    else if (humanityMeterRef.mainSlider.value >= 60)
-                    {
-                        print("monster");
-                        playerRef.hasPower3b = true;
                     }
                     //else print("No change!");
                 }
