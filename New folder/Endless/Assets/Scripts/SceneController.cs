@@ -122,22 +122,35 @@ public class SceneController : MonoBehaviour
                 {
                     print("ZomCOLLISION!!");
                     //TODO: Make health less
+                    //if human colliding with monsters
                     if (humanityMeterRef.mainSlider.value <= 40)
+                    {
+                        //if has weapon
+                        if (playerRef.hasPower2)
+                        {
+                            //make more human
+                            humanityMeterRef.mainSlider.value--;
+                        }
+                        else
+                        {
+                            //if no weapon, ouch
+                            healthMeterRef.secondSlider.value--;
+                        }
+                    }
+                    //do damage if inbetween
+                    if (humanityMeterRef.mainSlider.value > 40 && humanityMeterRef.mainSlider.value < 60)
                     {
                         healthMeterRef.secondSlider.value--;
                     }
                 }
             }
-
             if (player.position.z - enemies[0].transform.position.z > 14)
             {
                 Destroy(enemies[0]);
                 enemies.RemoveAt(0);
-
             }
         }
         //end of enemies
-        
         //humans
         if (humans.Count > 0)
         {
@@ -147,13 +160,25 @@ public class SceneController : MonoBehaviour
                 {
                     print("HumanCOLLISION!!");
                     //TODO: Make health less
+                    //if monster colliding with humans
                     if (humanityMeterRef.mainSlider.value >= 60)
+                    {
+                        //ouch
+                        healthMeterRef.secondSlider.value--;
+                    }
+                    //if human colliding with human with weapon
+                    else if (humanityMeterRef.mainSlider.value <= 40 && playerRef.hasPower2)
+                    {
+                        //make more monster
+                        humanityMeterRef.mainSlider.value++;
+                    }
+                    //do damage if inbetween
+                    else
                     {
                         healthMeterRef.secondSlider.value--;
                     }
                 }
             }
-
             if (player.position.z - humans[0].transform.position.z > 14)
             {
                 Destroy(humans[0]);
@@ -236,7 +261,21 @@ public class SceneController : MonoBehaviour
             foreach (GameObject humheal in humheals)
             {
                 if (pBox.CheckOverlap(humheal.GetComponent<ColliderAABB>()))
-                { print("go go gadget ouch"); }
+                {
+                    print("go go gadget ouch");
+                    //heals both human and inbetween
+                    if (humanityMeterRef.mainSlider.value < 60)
+                    {
+                        healthMeterRef.secondSlider.value++;
+                    }
+                    //hurts monster
+                    else if (humanityMeterRef.mainSlider.value >=60)
+                    {
+                        healthMeterRef.secondSlider.value--;
+                    }
+
+
+                }
             }
             if (player.position.z - humheals[0].transform.position.z > 14)
             {
@@ -250,7 +289,19 @@ public class SceneController : MonoBehaviour
             foreach (GameObject zomheal in zomheals)
             {
                 if (pBox.CheckOverlap(zomheal.GetComponent<ColliderAABB>()))
-                { print("go go gadget ouch"); }
+                {
+                    print("go go gadget ouch");
+                    //heals both monster and inbetween
+                    if (humanityMeterRef.mainSlider.value <= 40)
+                    {
+                        healthMeterRef.secondSlider.value--;
+                    }
+                    //hurts human
+                    else if (humanityMeterRef.mainSlider.value >= 60)
+                    {
+                        healthMeterRef.secondSlider.value++;
+                    }
+                }
             }
             if (player.position.z - zomheals[0].transform.position.z > 14)
             {
