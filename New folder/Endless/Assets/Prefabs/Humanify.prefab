@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3432279029321630421, guid: 3fc5a28aacfd9bf4785a04fdf34bd3fb,
         type: 3}
       propertyPath: m_Name
-      value: Item
+      value: Humanify
       objectReference: {fileID: 0}
     - target: {fileID: 675213267635178355, guid: 3fc5a28aacfd9bf4785a04fdf34bd3fb,
         type: 3}

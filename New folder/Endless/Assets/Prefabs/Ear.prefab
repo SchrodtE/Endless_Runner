@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 4309006857812895522, guid: d284c540f9d8a374bb14b62601fe6b31,
         type: 3}
       propertyPath: m_Name
-      value: Item
+      value: Ear
       objectReference: {fileID: 0}
     - target: {fileID: 2104196545683615364, guid: d284c540f9d8a374bb14b62601fe6b31,
         type: 3}

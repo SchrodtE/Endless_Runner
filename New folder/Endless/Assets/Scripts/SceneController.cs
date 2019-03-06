@@ -5,11 +5,11 @@ using UnityEngine;
 public class SceneController : MonoBehaviour
 {
     public GameObject prefabChunk;
-    public GameObject prefabItem1;
+    //public GameObject prefabItem1;
    
 
     public Transform player;
-    public Transform weapon1;
+    //public Transform weapon1;
 
     public bool hasBeenHit = false;
 
@@ -17,9 +17,9 @@ public class SceneController : MonoBehaviour
     public float countdown2 = 0;
     public float countdown3 = 0;
     
-    public Sprite m_Sprite;
-    public Sprite n_Sprite;
-    public Sprite o_Sprite;
+    //public Sprite m_Sprite;
+    //public Sprite n_Sprite;
+    //public Sprite o_Sprite;
 
     List<GameObject> chunks = new List<GameObject>();
 
@@ -402,11 +402,12 @@ public class SceneController : MonoBehaviour
                         playerRef.hasPower3b = true;
                     }
                 }
-                if (player.position.z - ears[0].transform.position.z > 14)
-                {
-                    Destroy(ears[0]);
-                    ears.RemoveAt(0);
-                }
+                
+            }
+            if (player.position.z - ears[0].transform.position.z > 14)
+            {
+                Destroy(ears[0]);
+                ears.RemoveAt(0);
             }
 
         }

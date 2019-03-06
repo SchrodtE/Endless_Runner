@@ -10,7 +10,7 @@ public class PlayerRun : MonoBehaviour
     public Vector3 weaponPos1;
     public Vector3 weaponPos2;
 
-    public float speed = 10;
+    private float speed = 20;
     public float jumpForce = 2;
     public float attackRange = 3;
     public float hoverNum = 0;
@@ -35,6 +35,7 @@ public class PlayerRun : MonoBehaviour
     SceneController powerLOL;
     SceneController controlRef;
     Rigidbody rb;
+    HumanityMeter human;
 
     //bryan's stuff
     public int maxJumps = 2;
@@ -57,6 +58,7 @@ public class PlayerRun : MonoBehaviour
     {
         //powerLOL = GameObject.Find("Power").GetComponent<SceneController>();
         rb = GetComponent<Rigidbody>();
+        human = GameObject.Find("Slider").GetComponent<HumanityMeter>();
         //Instantiate(prefabWeapon1, weaponPos1, Quaternion.identity);
         weaponPos1.x = 1;
         weaponPos1.y = 1;
@@ -83,8 +85,21 @@ public class PlayerRun : MonoBehaviour
         //Vector3 weaponPos2 = transform.position;
         //weaponPos2.z = pos.z;
 
-        //power 2
-        if (hasPower2)
+        if (human.mainSlider.value <= 40)
+        {
+            speed = 20;
+        }
+        else if (human.mainSlider.value >= 60)
+        {
+            speed = 10;
+        }
+        else
+        {
+            speed = 15;
+        }
+
+            //power 2
+            if (hasPower2)
         {
             weaponPos1.x = pos.x;
             weaponPos1.y = pos.y;

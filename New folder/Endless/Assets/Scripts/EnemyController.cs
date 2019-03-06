@@ -30,21 +30,21 @@ public class EnemyController : MonoBehaviour
         rigid.velocity = moveDir * moveForce;
 
         //picks how long the raycast is
-        int range = Random.Range(0, 3);
+        int range = Random.Range(0, 4);
 
         if (range == 0)
         {
-            moveRange = 0.8f;
+            moveRange = 0.2f;
         }
 
         if (range == 1)
         {
-            moveRange = 1.6f;
+            moveRange = 1.0f;
         }
 
         if (range == 2)
         {
-            moveRange = 2.4f;
+            moveRange = 2.0f;
         }
 
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), moveRange))

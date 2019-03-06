@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 9149936014999546700, guid: 9bc798bede8f66f4daada8eb3552fe7b,
         type: 3}
       propertyPath: m_Name
-      value: Item
+      value: Acid
       objectReference: {fileID: 0}
     - target: {fileID: 6342241625743450858, guid: 9bc798bede8f66f4daada8eb3552fe7b,
         type: 3}

@@ -16,11 +16,17 @@ public class Chunk : MonoBehaviour
         var ran = Random.Range(0, 6);
 
         if (ran == 0) SpawnEnemyAt("Spawn1");
+        if (ran == 0) SpawnHumanAt("Spawn1");
         if (ran == 1) SpawnHumanAt("Spawn2");
+        if (ran == 1) SpawnEnemyAt("Spawn2");
         if (ran == 2) SpawnEnemyAt("Spawn3");
+        if (ran == 2) SpawnHumanAt("Spawn3");
         if (ran == 3) SpawnHumanAt("Spawn4");
+        if (ran == 3) SpawnEnemyAt("Spawn4");
         if (ran == 4) SpawnEnemyAt("Spawn5");
+        if (ran == 4) SpawnHumanAt("Spawn5");
         if (ran == 5) SpawnHumanAt("Spawn1");
+        if (ran == 5) SpawnEnemyAt("Spawn1");
     }
 
     private void SpawnEnemyAt(string name)
