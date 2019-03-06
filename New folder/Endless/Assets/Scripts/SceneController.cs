@@ -25,6 +25,8 @@ public class SceneController : MonoBehaviour
     public AudioClip bikeSound;
     public AudioClip zombie;
 
+    public AudioClip bgMusic;
+
     private AudioSource source;
     private float volLow = 0.5f;
     private float volHigh = 1.0f;
@@ -74,13 +76,13 @@ public class SceneController : MonoBehaviour
         healthMeterRef = GameObject.Find("OtherSlider").GetComponent<HealthMeter>();
 
         source = GetComponent<AudioSource>();
+        source.PlayOneShot(bgMusic, 0.1f);
     }
 
     // Update is called once per frame
     void Update()
     {//update start
-        
-        
+
         //Press space to change the Sprite of the Image
         //print(healthMeterRef.secondSlider.value);
         //print(countdown);

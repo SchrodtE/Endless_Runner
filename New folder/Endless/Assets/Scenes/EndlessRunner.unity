@@ -633,6 +633,7 @@ MonoBehaviour:
   coffeeSound: {fileID: 8300000, guid: 31dbf12e43da73e4f9a3f4801dd37711, type: 3}
   bikeSound: {fileID: 8300000, guid: 36cc0aa54849a974891a7fe703a86e96, type: 3}
   zombie: {fileID: 8300000, guid: 77e68d2c8de1551438c9105561a0a712, type: 3}
+  bgMusic: {fileID: 8300000, guid: b6e8c85e528268f4382577302dfd4155, type: 3}
 --- !u!82 &534669907
 AudioSource:
   m_ObjectHideFlags: 0
