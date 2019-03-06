@@ -16,7 +16,20 @@ public class SceneController : MonoBehaviour
     public float countdown1 = 0;
     public float countdown2 = 0;
     public float countdown3 = 0;
-    
+
+    //audio
+    public AudioClip zombieCrunch;
+    public AudioClip heal;
+    public AudioClip punch;
+    public AudioClip coffeeSound;
+    public AudioClip bikeSound;
+    public AudioClip zombie;
+
+    private AudioSource source;
+    private float volLow = 0.5f;
+    private float volHigh = 1.0f;
+
+
     //public Sprite m_Sprite;
     //public Sprite n_Sprite;
     //public Sprite o_Sprite;
@@ -59,8 +72,8 @@ public class SceneController : MonoBehaviour
         //weaponRef1 = GameObject.Find("Weapon").GetComponent<PlayerRun>();
         humanityMeterRef = GameObject.Find("Slider").GetComponent<HumanityMeter>();
         healthMeterRef = GameObject.Find("OtherSlider").GetComponent<HealthMeter>();
-        
 
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -136,6 +149,9 @@ public class SceneController : MonoBehaviour
                         {
                             //if no weapon, ouch
                             healthMeterRef.secondSlider.value--;
+                            //play sound
+                            float vol = Random.Range(volLow, volHigh);
+                            source.PlayOneShot(zombieCrunch, vol);
                         }
                     }
                     //do damage if inbetween
@@ -166,12 +182,18 @@ public class SceneController : MonoBehaviour
                     {
                         //ouch
                         healthMeterRef.secondSlider.value--;
+                        //play sound
+                        float vol = Random.Range(volLow, volHigh);
+                        source.PlayOneShot(punch, vol);
                     }
                     //if human colliding with human with weapon
                     else if (humanityMeterRef.mainSlider.value <= 40 && playerRef.hasPower2)
                     {
                         //make more monster
                         humanityMeterRef.mainSlider.value++;
+                        //play sound
+                        float vol = Random.Range(volLow, volHigh);
+                        source.PlayOneShot(zombie, vol);
                     }
                     //do damage if inbetween
                     else
@@ -268,6 +290,8 @@ public class SceneController : MonoBehaviour
                     if (humanityMeterRef.mainSlider.value < 60)
                     {
                         healthMeterRef.secondSlider.value++;
+                        //play sound
+                        source.PlayOneShot(heal, 0.3f);
                     }
                     //hurts monster
                     else if (humanityMeterRef.mainSlider.value >=60)
@@ -296,6 +320,9 @@ public class SceneController : MonoBehaviour
                     if (humanityMeterRef.mainSlider.value <= 40)
                     {
                         healthMeterRef.secondSlider.value--;
+                        //play sound
+                        float vol = Random.Range(volLow, volHigh);
+                        source.PlayOneShot(zombie, vol);
                     }
                     //hurts human
                     else if (humanityMeterRef.mainSlider.value >= 60)
@@ -338,7 +365,10 @@ public class SceneController : MonoBehaviour
                 {
                     print("go go gadget ouch"); 
                     humanityMeterRef.mainSlider.value += 1;
-                
+                    //play sound
+                    float vol = Random.Range(volLow, volHigh);
+                    source.PlayOneShot(zombie, vol);
+
                 }
             }
             if (player.position.z - zombifies[0].transform.position.z > 14)
@@ -425,6 +455,8 @@ public class SceneController : MonoBehaviour
                     {
                         print("human");
                         playerRef.hasPower1 = true;
+                        //play sound
+                        source.PlayOneShot(coffeeSound, 0.6f);
                     }
 
                 }
@@ -445,6 +477,8 @@ public class SceneController : MonoBehaviour
                     {
                         print("human");
                         playerRef.hasPower2 = true;
+                        //play sound
+                        source.PlayOneShot(bikeSound, 1f);
                     }
                 }
             }
