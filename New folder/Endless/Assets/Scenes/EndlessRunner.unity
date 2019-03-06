@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -312,7 +312,6 @@ MonoBehaviour:
   pos: {x: 0, y: 0, z: 0}
   weaponPos1: {x: 0, y: 0, z: 0}
   weaponPos2: {x: 0, y: 0, z: 0}
-  speed: 20
   jumpForce: 5
   attackRange: 3
   hoverNum: 0
@@ -621,16 +620,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabChunk: {fileID: 1850253182045503114, guid: 8dfb7ca69c0ac1740854bc53f7b6e9c8,
     type: 3}
-  prefabItem1: {fileID: 0}
   player: {fileID: 125715221}
-  weapon1: {fileID: 0}
   hasBeenHit: 0
   countdown1: 0
   countdown2: 0
   countdown3: 0
-  m_Sprite: {fileID: 0}
-  n_Sprite: {fileID: 0}
-  o_Sprite: {fileID: 0}
 --- !u!1 &623235518
 GameObject:
   m_ObjectHideFlags: 0

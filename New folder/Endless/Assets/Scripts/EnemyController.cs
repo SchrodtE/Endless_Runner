@@ -9,10 +9,11 @@ public class EnemyController : MonoBehaviour
 
     private Rigidbody rigid;
     public Vector3 moveDir;
-    
+    public Vector3 bulletDir;
+
     public Vector3 pos;
 
-
+    public GameObject projectile;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +57,8 @@ public class EnemyController : MonoBehaviour
             range = Random.Range(0,3);
 
             transform.rotation = Quaternion.LookRotation(moveDir);
+
+            Attack();
         }
 
         //limiter
@@ -76,6 +79,12 @@ public class EnemyController : MonoBehaviour
         transform.position = pos;
 
     }//end update
+
+    void Attack()
+    {
+        GameObject obj = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
+        bulletDir = -Vector3.forward;
+    }
 
         /**Vector3 ChooseDirection()
         {

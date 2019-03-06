@@ -37,6 +37,7 @@ public class SceneController : MonoBehaviour
     static public List<GameObject> monlegs = new List<GameObject>();
     static public List<GameObject> ears = new List<GameObject>();
     static public List<GameObject> acids = new List<GameObject>();
+    static public List<GameObject> projectiles = new List<GameObject>();
 
     ColliderAABB pBox;
     ColliderAABB epBox;
@@ -120,8 +121,8 @@ public class SceneController : MonoBehaviour
             {
                 if (pBox.CheckOverlap(enemy.GetComponent<ColliderAABB>()))
                 {
-                    print("ZomCOLLISION!!");
-                    //TODO: Make health less
+                    //print("ZomCOLLISION!!");
+                    
                     //if human colliding with monsters
                     if (humanityMeterRef.mainSlider.value <= 40)
                     {
@@ -158,8 +159,8 @@ public class SceneController : MonoBehaviour
             {
                 if (pBox.CheckOverlap(human.GetComponent<ColliderAABB>()))
                 {
-                    print("HumanCOLLISION!!");
-                    //TODO: Make health less
+                    //print("HumanCOLLISION!!");
+                   
                     //if monster colliding with humans
                     if (humanityMeterRef.mainSlider.value >= 60)
                     {
@@ -449,6 +450,25 @@ public class SceneController : MonoBehaviour
             }
         }
         //bike
+
+        //bullets
+        if (projectiles.Count > 0)
+        {
+            foreach (GameObject projectile in projectiles)
+            {
+                if (pBox.CheckOverlap(projectile.GetComponent<ColliderAABB>()))
+                {
+                    print("projectile Collision!");
+                }
+            }
+            if (player.position.z - projectiles[0].transform.position.z > 14)
+            {
+                print("toofar");
+                Destroy(projectiles[0]);
+                projectiles.RemoveAt(0);
+            }
+        }
+        //bullets
 
         //balloon
         if (balloons.Count > 0)

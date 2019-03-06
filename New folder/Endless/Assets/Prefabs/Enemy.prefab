@@ -122,9 +122,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e973808865c1743b4b8cfa85a57af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDir: {x: 0, y: 0, z: 0}
   moveForce: 5
+  moveDir: {x: 0, y: 0, z: 0}
+  bulletSpeed: 30
   pos: {x: 0, y: 0, z: 0}
+  projectile: {fileID: 177457219882214171, guid: d984078e83b1df0489a05fef80042efb,
+    type: 3}
 --- !u!114 &3164645726141888028
 MonoBehaviour:
   m_ObjectHideFlags: 0

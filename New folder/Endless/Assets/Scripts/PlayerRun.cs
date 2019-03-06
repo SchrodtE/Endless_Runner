@@ -9,6 +9,7 @@ public class PlayerRun : MonoBehaviour
     public Vector3 pos;
     public Vector3 weaponPos1;
     public Vector3 weaponPos2;
+    public Vector3 bulletDir;
 
     private float speed = 20;
     public float jumpForce = 2;
@@ -28,7 +29,7 @@ public class PlayerRun : MonoBehaviour
     public GameObject prefabWeapon2;
     public GameObject projectile;
 
-    List<GameObject> bullets = new List<GameObject>();
+    //List<GameObject> bullets = new List<GameObject>();
 
     //public static Mesh Weapon;
     
@@ -49,7 +50,7 @@ public class PlayerRun : MonoBehaviour
 
     private float currentDashTime;
     
-    private float alpha = 1f;
+    //private float alpha = 1f;
 
 
 
@@ -219,17 +220,18 @@ public class PlayerRun : MonoBehaviour
 
     }//end update
 
-    void Attack()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, attackRange))
-        {
-            Debug.Log(hit.transform.name);
-        }
-    }
+    //void Attack()
+    //{
+    //    RaycastHit hit;
+    //    if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, attackRange))
+    //    {
+    //        Debug.Log(hit.transform.name);
+    //    }
+    //}
     
     void Attack2()
     {
-        GameObject obj = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
+        GameObject obj = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
+        bulletDir = Vector3.forward;
     }
 }
