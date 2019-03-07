@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
@@ -56,8 +58,9 @@ public class SceneController : MonoBehaviour
     static public List<GameObject> acids = new List<GameObject>();
     static public List<GameObject> projectiles = new List<GameObject>();
     static public List<GameObject> bullets = new List<GameObject>();
+    static public bool isDied = false;
 
-
+  
     ColliderAABB pBox;
     ColliderAABB epBox;
     PlayerRun playerRef;
@@ -123,15 +126,7 @@ public class SceneController : MonoBehaviour
                 playerRef.hasPower3b = false;
             }
         }
-        //chunk
-        if (chunks.Count > 0)
-        {
-            if (player.position.z - chunks[0].transform.position.z > 14)
-            {
-                Destroy(chunks[0]);
-                chunks.RemoveAt(0);
-            }
-        }
+        
 
         //enemies
         if (enemies.Count > 0)
@@ -158,15 +153,20 @@ public class SceneController : MonoBehaviour
                             //play sound
                             float vol = Random.Range(volLow, volHigh);
                             source.PlayOneShot(zombieCrunch, vol);
+                            Destroy(enemies[0]);
+                            enemies.RemoveAt(0);
                         }
-                        Destroy(enemies[0]);
-                        enemies.RemoveAt(0);
+                       
                     }
                     //do damage if inbetween
                     if (humanityMeterRef.mainSlider.value > 40 && humanityMeterRef.mainSlider.value < 60)
                     {
                         healthMeterRef.secondSlider.value -=5;
+                        Destroy(enemies[0]);
+                        enemies.RemoveAt(0);
                     }
+                    
+                    
                 }
             }
             if (player.position.z - enemies[0].transform.position.z > 14)
@@ -186,13 +186,15 @@ public class SceneController : MonoBehaviour
                     //print("HumanCOLLISION!!");
                    
                     //if monster colliding with humans
-                    if (humanityMeterRef.mainSlider.value > 60)
+                    if (humanityMeterRef.mainSlider.value >= 40)
                     {
                         //ouch
                         healthMeterRef.secondSlider.value -=5;
                         //play sound
                         float vol = Random.Range(volLow, volHigh);
                         source.PlayOneShot(punch, vol);
+                        Destroy(humans[0]);
+                        humans.RemoveAt(0);
                     }
                     //if human colliding with human with weapon
                     else if (humanityMeterRef.mainSlider.value < 40 && playerRef.hasPower2)
@@ -203,11 +205,7 @@ public class SceneController : MonoBehaviour
                         float vol = Random.Range(volLow, volHigh);
                         source.PlayOneShot(zombie, vol);
                     }
-                    //do damage if inbetween
-                    else
-                    {
-                        healthMeterRef.secondSlider.value -=5;
-                    }
+
                 }
             }
             if (player.position.z - humans[0].transform.position.z > 14)
@@ -231,7 +229,15 @@ public class SceneController : MonoBehaviour
 
             GameObject obj = Instantiate(prefabChunk, position, Quaternion.identity);
             chunks.Add(obj);
-
+        }
+        //chunk2 electric boogagle
+        if (chunks.Count > 0)
+        {
+            if (player.position.z - chunks[0].transform.position.z > 14)
+            {
+                Destroy(chunks[0]);
+                chunks.RemoveAt(0);
+            }
         }
         //end of chunks
 
@@ -267,7 +273,7 @@ public class SceneController : MonoBehaviour
                     //heals both human and inbetween
                     if (humanityMeterRef.mainSlider.value <= 60)
                     {
-                        healthMeterRef.secondSlider.value +=5;
+                        healthMeterRef.secondSlider.value +=15;
                         //play sound
                         source.PlayOneShot(heal, 0.3f);
                     }
@@ -296,7 +302,7 @@ public class SceneController : MonoBehaviour
                 {
                     
                     //heals both monster and inbetween
-                    if (humanityMeterRef.mainSlider.value <= 40)
+                    if (humanityMeterRef.mainSlider.value < 40)
                     {
                         healthMeterRef.secondSlider.value -=5;
                         //play sound
@@ -304,9 +310,9 @@ public class SceneController : MonoBehaviour
                         source.PlayOneShot(zombie, vol);
                     }
                     //hurts human
-                    else if (humanityMeterRef.mainSlider.value < 40)
+                    else if (humanityMeterRef.mainSlider.value >= 40)
                     {
-                        healthMeterRef.secondSlider.value += 5;
+                        healthMeterRef.secondSlider.value += 15;
                     }
                     Destroy(zomheal);
                     zomheals.Remove(zomheal);
@@ -326,7 +332,7 @@ public class SceneController : MonoBehaviour
                 if (pBox.CheckOverlap(humify.GetComponent<ColliderAABB>()))
                 {
                     
-                    humanityMeterRef.mainSlider.value -= 5;
+                    humanityMeterRef.mainSlider.value -= 10;
                     Destroy(humify);
                     humifies.Remove(humify);
                 }
@@ -346,7 +352,7 @@ public class SceneController : MonoBehaviour
                 if (pBox.CheckOverlap(zombify.GetComponent<ColliderAABB>()))
                 {
                     
-                    humanityMeterRef.mainSlider.value += 5;
+                    humanityMeterRef.mainSlider.value += 10;
                     //play sound
                     float vol = Random.Range(volLow, volHigh);
                     source.PlayOneShot(zombie, vol);
@@ -571,6 +577,19 @@ public class SceneController : MonoBehaviour
                 }
             }
         }//end balloon
+
+        if(healthMeterRef.secondSlider.value <= 0 || humanityMeterRef.mainSlider.value >= 100 || humanityMeterRef.mainSlider.value <= 0)
+        {
+            isDied = true;
+                      
+            if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Fire1"))
+            {
+                healthMeterRef.secondSlider.value = 100;
+                humanityMeterRef.mainSlider.value = 20;
+                isDied = false;
+
+            }
+        }
 
     }//end of update
 

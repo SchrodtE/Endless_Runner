@@ -41,7 +41,7 @@ public class Item1 : MonoBehaviour
 
     private void SpawnItemAt(string name)
     {
-        if (Random.Range(0, 100) < 40)
+        if (Random.Range(0, 100) < 60)
         {
             var itemType = Random.Range(0, 100);
             

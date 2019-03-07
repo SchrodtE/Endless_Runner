@@ -11,10 +11,10 @@ public class PlayerRun : MonoBehaviour
     public Vector3 weaponPos2;
     public Vector3 bulletDir;
 
-    private float speed = 20;
-    public float jumpForce = 2;
-    public float attackRange = 3;
-    public float hoverNum = 0;
+    private float speed = 20f;
+    public float jumpForce = 2f;
+    public float attackRange = 3f;
+    public float hoverNum = 0f;
 
     public bool hasPower1 = false;
     public bool hasPower2 = false;
@@ -91,27 +91,28 @@ public class PlayerRun : MonoBehaviour
         //Vector3 weaponPos2 = transform.position;
         //weaponPos2.z = pos.z;
 
-        if (human.mainSlider.value < 40)
+        if (human.mainSlider.value < 40 && SceneController.isDied == false)
         {
             Destroy(th);
-            th = Instantiate(th1, pos, Quaternion.Euler(-90,0,0));
+            th = Instantiate(th1, pos, Quaternion.Euler(-90, 0, 0));
             speed = 20;
         }
-        else if (human.mainSlider.value > 60)
+        else if (human.mainSlider.value > 60 && SceneController.isDied == false)
         {
             Destroy(th);
             th = Instantiate(th3, pos, Quaternion.Euler(-90, 0, 0));
             speed = 10;
         }
-        else
+        else if (human.mainSlider.value <= 60 && human.mainSlider.value >= 40 && SceneController.isDied == false)
         {
             Destroy(th);
             th = Instantiate(th2, pos, Quaternion.Euler(-90, 0, 0));
             speed = 15;
         }
+        else if (SceneController.isDied == true) speed = 0;
 
-            //power 2
-            if (hasPower2)
+        //power 2
+        if (hasPower2)
         {
             weaponPos1.x = pos.x;
             weaponPos1.y = pos.y;
