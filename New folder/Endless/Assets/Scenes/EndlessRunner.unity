@@ -309,9 +309,9 @@ MonoBehaviour:
   hasPower1b: 0
   hasPower2b: 0
   hasPower3b: 0
-  prefabWeapon1: {fileID: 0}
-  prefabWeapon2: {fileID: 1648206812250503273, guid: 0e8a76de904f8c74da651d4e48c8b4c7,
-    type: 3}
+  th1: {fileID: 930846394378000579, guid: 37bfc41755c30bc4cb3940b6a9b4f9c3, type: 3}
+  th2: {fileID: 5078240798988398423, guid: 0778ebf85eea3634e9e948cd06ce15e5, type: 3}
+  th3: {fileID: 4925450313543296118, guid: df371ec63207b084eb5f8b224b8943eb, type: 3}
   projectile: {fileID: 177457219882214171, guid: d984078e83b1df0489a05fef80042efb,
     type: 3}
   maxJumps: 2
@@ -319,6 +319,7 @@ MonoBehaviour:
   maxDashTime: 1
   dashSpeed: 30
   dashStoppingSpeed: 0.1
+  playerPos: {fileID: 0}
 --- !u!114 &125715223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1871,7 +1872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: bb10da36c6968ce4dbb053d1877c22df, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb10da36c6968ce4dbb053d1877c22df, type: 3}

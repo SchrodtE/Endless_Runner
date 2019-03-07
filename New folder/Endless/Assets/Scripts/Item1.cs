@@ -23,7 +23,6 @@ public class Item1 : MonoBehaviour
     public GameObject prefabAcid;
     public GameObject prefabMonLegs;
     public GameObject prefabEar;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -42,30 +41,30 @@ public class Item1 : MonoBehaviour
 
     private void SpawnItemAt(string name)
     {
-        if (Random.Range(0, 100) < 40) //Likelyhood of any item spawning
+        if (Random.Range(0, 100) < 40)
         {
-            var itemType = Random.Range(0, 100); //random variable that  decides which item spawns
+            var itemType = Random.Range(0, 100);
             
-            if (itemType < 5) //5% chance of a ballon power up spawning
+            if (itemType < 5)
             {
                 Vector3 position = transform.Find(name).position;
                 GameObject obj = Instantiate(prefabBalloon, position, Quaternion.identity);
                 SceneController.balloons.Add(obj);
                 
             }
-            if (itemType >= 5 && itemType < 10) //5% chance of a coffee power up spawning
+            if (itemType >= 5 && itemType < 10)
             {
                 Vector3 position = transform.Find(name).position;
                 GameObject obj = Instantiate(prefabCoffee, position, Quaternion.identity);
                 SceneController.coffees.Add(obj);
             }
-            if (itemType >= 10 && itemType < 15) //5% chance of a bike power up spawning
+            if (itemType >= 10 && itemType < 15)
             {
                 Vector3 position = transform.Find(name).position;
                 GameObject obj = Instantiate(prefabBike, position, Quaternion.identity);
                 SceneController.bikes.Add(obj);
             }
-            if (itemType >= 15 && itemType < 30) //15% chance of a human health pick up spawning
+            if (itemType >= 15 && itemType < 30)
             {
                 var humHealType = Random.Range(0, 3);
 
@@ -88,9 +87,9 @@ public class Item1 : MonoBehaviour
                 }
 
             }
-            if (itemType >= 30 && itemType < 45) //15% chance of a zombie health pick up spawning
+            if (itemType >= 30 && itemType < 45)
             {
-                var zomHealType = Random.Range(0, 3); // 1/3 chance of each of the different humanifying items spawning
+                var zomHealType = Random.Range(0, 3);
 
                 Vector3 position = transform.Find(name).position;
 
@@ -110,9 +109,9 @@ public class Item1 : MonoBehaviour
                     SceneController.zomheals.Add(obj3);
                 }
             }
-            if (itemType >= 45 && itemType < 65) //20% chance of a zombifying pick up spawning
+            if (itemType >= 45 && itemType < 65)
             {
-                var zombifyType = Random.Range(0, 3); // 1/3 chance of each of the different zombifying items spawning
+                var zombifyType = Random.Range(0, 3);
 
                 Vector3 position = transform.Find(name).position;
 
@@ -132,7 +131,7 @@ public class Item1 : MonoBehaviour
                     SceneController.zombifies.Add(obj3);
                 }
             }
-            if (itemType >= 65 && itemType < 85) //20% chance of a humanifying pick up spawning
+            if (itemType >= 65 && itemType < 85)
             {
                 var humifyType = Random.Range(0, 3);
 
@@ -154,19 +153,19 @@ public class Item1 : MonoBehaviour
                     SceneController.humifies.Add(obj3);
                 }
             }
-            if (itemType >= 85 && itemType < 90) //5% chance of a monster legs power up spawning
+            if (itemType >= 85 && itemType < 90)
             {
                 Vector3 position = transform.Find(name).position;
                 GameObject obj = Instantiate(prefabMonLegs, position, Quaternion.identity);
                 SceneController.monlegs.Add(obj);
             }
-            if (itemType >= 90 && itemType < 95) //5% chance of a double jump power up spawning
+            if (itemType >= 90 && itemType < 95)
             {
                 Vector3 position = transform.Find(name).position;
                 GameObject obj = Instantiate(prefabEar, position, Quaternion.identity);
                 SceneController.ears.Add(obj);
             }
-            if (itemType >= 95 && itemType < 100) //5% chance of a acid power up spawning
+            if (itemType >= 95 && itemType < 100)
             {
                 Vector3 position = transform.Find(name).position;
                 GameObject obj = Instantiate(prefabAcid, position, Quaternion.identity);

@@ -7,6 +7,8 @@ public class PlayerRun : MonoBehaviour
 
     public Vector3 jump;
     public Vector3 pos;
+    public Vector3 weaponPos1;
+    public Vector3 weaponPos2;
     public Vector3 bulletDir;
 
     private float speed = 20;
@@ -22,6 +24,13 @@ public class PlayerRun : MonoBehaviour
     public bool hasPower3b = false;
  
     public static Mesh Player;
+    //public static Mesh Weapon;
+    public GameObject th1;
+    public GameObject th2;
+    public GameObject th3;
+    GameObject th;
+    //public GameObject prefabWeapon1;
+    //public GameObject prefabWeapon2;
     public GameObject projectile;
 
     //List<GameObject> bullets = new List<GameObject>();
@@ -39,9 +48,10 @@ public class PlayerRun : MonoBehaviour
     private int jumpNum = 0;
 
     public Vector3 moveDirection;
-    public float maxDashTime = 5.0f;
-    public float dashSpeed = 50;
+    public float maxDashTime = 1.0f;
+    public float dashSpeed = 1.0f;
     public float dashStoppingSpeed = 0.1f;
+    public Transform playerPos;
 
     private float currentDashTime;
     
@@ -55,6 +65,13 @@ public class PlayerRun : MonoBehaviour
         //powerLOL = GameObject.Find("Power").GetComponent<SceneController>();
         rb = GetComponent<Rigidbody>();
         human = GameObject.Find("Slider").GetComponent<HumanityMeter>();
+        //Instantiate(prefabWeapon1, weaponPos1, Quaternion.identity);
+        weaponPos1.x = 1;
+        weaponPos1.y = 1;
+        weaponPos1.z = 1;
+        weaponPos2.x = 1;
+        weaponPos2.y = 1;
+        weaponPos2.z = 1;
 
         //bryan's stuff
         currentDashTime = maxDashTime;
@@ -74,19 +91,51 @@ public class PlayerRun : MonoBehaviour
         //Vector3 weaponPos2 = transform.position;
         //weaponPos2.z = pos.z;
 
-        if (human.mainSlider.value <= 40)
+        if (human.mainSlider.value < 40)
         {
+            Destroy(th);
+            th = Instantiate(th1, pos, Quaternion.Euler(-90,0,0));
             speed = 20;
         }
-        else if (human.mainSlider.value >= 60)
+        else if (human.mainSlider.value > 60)
         {
-            //if (hasPower1b)
-        //{
+            Destroy(th);
+            th = Instantiate(th3, pos, Quaternion.Euler(-90, 0, 0));
+            speed = 10;
+        }
+        else
+        {
+            Destroy(th);
+            th = Instantiate(th2, pos, Quaternion.Euler(-90, 0, 0));
+            speed = 15;
+        }
+
+            //power 2
+            if (hasPower2)
+        {
+            weaponPos1.x = pos.x;
+            weaponPos1.y = pos.y;
+            weaponPos1.z = pos.z;
+        }
+        else
+        {
+            weaponPos1.x = 101;
+            weaponPos1.y = 101;
+            weaponPos1.z = 101;
+        }
+        if (pos.y >= 2 && !hasPower3b)
+        {
+            pos.y = 2;
+        }
+
+        //power1
+        if (hasPower1b)
+        {
             if (Input.GetButtonDown("Fire2"))
             {
                 print("Zoom!");
-                currentDashTime = 0.5f;
-                speed = 90;
+                currentDashTime = 2.0f;
+                speed = 30;
             }
             if (currentDashTime < maxDashTime)
             {
@@ -98,47 +147,7 @@ public class PlayerRun : MonoBehaviour
             {
                 speed = 10;
             }
-        //}
         }
-        else
-        {
-            speed = 15;
-        }
-
-            //power 2
-            if (hasPower2)
-        {
-            
-        }
-        else
-        {
-            
-        }
-        if (pos.y >= 2 && !hasPower3b)
-        {
-            pos.y = 2;
-        }
-
-        //power1
-        //if (hasPower1b)
-        //{
-            //if (Input.GetButtonDown("Fire2"))
-            //{
-               // print("Zoom!");
-               // currentDashTime = 2.0f;
-               // speed = 30;
-           // }
-           // if (currentDashTime < maxDashTime)
-            //{
-               // moveDirection = new Vector3(0, 0, dashSpeed);
-               // currentDashTime += dashStoppingSpeed;
-
-           // }
-           // else
-           // {
-               // speed = 10;
-            //}
-      //  }
 
 
         //jump logic
@@ -235,6 +244,5 @@ public class PlayerRun : MonoBehaviour
     {
         GameObject obj = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
         bulletDir = Vector3.forward;
-        SceneController.projectiles.Add(obj);
     }
 }
