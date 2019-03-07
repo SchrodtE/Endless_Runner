@@ -119,28 +119,6 @@ public class PlayerRun : MonoBehaviour
             pos.y = 2;
         }
 
-        //power1
-        //if (hasPower1b)
-        //{
-            //if (Input.GetButtonDown("Fire2"))
-            //{
-               // print("Zoom!");
-               // currentDashTime = 2.0f;
-               // speed = 30;
-           // }
-           // if (currentDashTime < maxDashTime)
-            //{
-               // moveDirection = new Vector3(0, 0, dashSpeed);
-               // currentDashTime += dashStoppingSpeed;
-
-           // }
-           // else
-           // {
-               // speed = 10;
-            //}
-      //  }
-
-
         //jump logic
         if (pos.y <= .35)
         {
@@ -205,7 +183,10 @@ public class PlayerRun : MonoBehaviour
         //attack
         if (Input.GetButtonDown("Fire1"))
         {
-            Attack2();
+            if (hasPower2b == true)
+            {
+                Attack2();
+            }
         }
 
         //limiter
@@ -221,15 +202,6 @@ public class PlayerRun : MonoBehaviour
         transform.position = pos;
 
     }//end update
-
-    //void Attack()
-    //{
-    //    RaycastHit hit;
-    //    if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, attackRange))
-    //    {
-    //        Debug.Log(hit.transform.name);
-    //    }
-    //}
     
     void Attack2()
     {

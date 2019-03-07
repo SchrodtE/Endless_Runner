@@ -5,6 +5,8 @@ using UnityEngine;
 public class SceneController : MonoBehaviour
 {
     public GameObject prefabChunk;
+
+    public GameObject prefabHuman;
     //public GameObject prefabItem1;
    
 
@@ -71,11 +73,11 @@ public class SceneController : MonoBehaviour
     {
         pBox = GameObject.Find("Player").GetComponent<ColliderAABB>();
         playerRef = GameObject.Find("Player").GetComponent<PlayerRun>();
+        epBox = prefabHuman.GetComponent<ColliderAABB>();
         //wBox1 = GameObject.Find("Weapon").GetComponent<ColliderAABB>();
         //weaponRef1 = GameObject.Find("Weapon").GetComponent<PlayerRun>();
         humanityMeterRef = GameObject.Find("Slider").GetComponent<HumanityMeter>();
         healthMeterRef = GameObject.Find("OtherSlider").GetComponent<HealthMeter>();
-        epBox = GameObject.Find("Enemy(Clone)").GetComponent<ColliderAABB>();
 
         source = GetComponent<AudioSource>();
         source.PlayOneShot(bgMusic, 0.1f);
@@ -409,14 +411,14 @@ public class SceneController : MonoBehaviour
         {
             foreach (GameObject projectile in projectiles)
             {
-                if (epBox.CheckOverlap(projectile.GetComponent<ColliderAABB>()))
-                {
-                    print("oof ooch");
-                    Destroy(enemies[0]);
-                    enemies.RemoveAt(0);
-                }
-                Destroy(projectile);
-                projectiles.Remove(projectile);
+                    if (epBox.CheckOverlap(projectile.GetComponent<ColliderAABB>()))
+                    {
+                        print("oof ooch");
+                        Destroy(humans[0]);
+                        humans.RemoveAt(0);
+                    }
+                    Destroy(projectile);
+                    projectiles.Remove(projectile);
             }
             if (player.position.z - projectiles[0].transform.position.z > 14)
             {

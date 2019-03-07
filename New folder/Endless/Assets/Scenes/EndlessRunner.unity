@@ -732,6 +732,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabChunk: {fileID: 1850253182045503114, guid: 8dfb7ca69c0ac1740854bc53f7b6e9c8,
     type: 3}
+  prefabHuman: {fileID: 1868899331519649249, guid: 985fa5e798916634b802264edfe42b81,
+    type: 3}
   player: {fileID: 125715225}
   hasBeenHit: 0
   countdown1: 0
