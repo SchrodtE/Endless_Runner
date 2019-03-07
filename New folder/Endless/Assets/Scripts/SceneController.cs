@@ -251,43 +251,13 @@ public class SceneController : MonoBehaviour
         }
         //end of walls
 
-        if (coffees.Count > 0)
-        {
-
-            if (player.position.z - coffees[0].transform.position.z > 14)
-            {
-                Destroy(coffees[0]);
-                coffees.RemoveAt(0);
-            }
-        }
-
-        if (balloons.Count > 0)
-        {
-
-            if (player.position.z - balloons[0].transform.position.z > 14)
-            {
-                Destroy(balloons[0]);
-                balloons.RemoveAt(0);
-            }
-        }
-
-        if (bikes.Count > 0)
-        {
-
-            if (player.position.z - bikes[0].transform.position.z > 14)
-            {
-                Destroy(bikes[0]);
-                bikes.RemoveAt(0);
-            }
-        }
-
         if (humheals.Count > 0)
         {
             foreach (GameObject humheal in humheals)
             {
                 if (pBox.CheckOverlap(humheal.GetComponent<ColliderAABB>()))
                 {
-                    print("go go gadget ouch");
+                    
                     //heals both human and inbetween
                     if (humanityMeterRef.mainSlider.value < 60)
                     {
@@ -300,7 +270,8 @@ public class SceneController : MonoBehaviour
                     {
                         healthMeterRef.secondSlider.value--;
                     }
-
+                    Destroy(humheal);
+                    humheals.Remove(humheal);
 
                 }
             }
@@ -317,7 +288,7 @@ public class SceneController : MonoBehaviour
             {
                 if (pBox.CheckOverlap(zomheal.GetComponent<ColliderAABB>()))
                 {
-                    print("go go gadget ouch");
+                    
                     //heals both monster and inbetween
                     if (humanityMeterRef.mainSlider.value <= 40)
                     {
@@ -331,6 +302,8 @@ public class SceneController : MonoBehaviour
                     {
                         healthMeterRef.secondSlider.value++;
                     }
+                    Destroy(zomheal);
+                    zomheals.Remove(zomheal);
                 }
             }
             if (player.position.z - zomheals[0].transform.position.z > 14)
@@ -346,9 +319,10 @@ public class SceneController : MonoBehaviour
             {
                 if (pBox.CheckOverlap(humify.GetComponent<ColliderAABB>()))
                 {
-                    print("go go gadget ouch");
+                    
                     humanityMeterRef.mainSlider.value -= 1;
-                
+                    Destroy(humify);
+                    humifies.Remove(humify);
                 }
                 
             }
@@ -365,12 +339,13 @@ public class SceneController : MonoBehaviour
             {
                 if (pBox.CheckOverlap(zombify.GetComponent<ColliderAABB>()))
                 {
-                    print("go go gadget ouch"); 
+                    
                     humanityMeterRef.mainSlider.value += 1;
                     //play sound
                     float vol = Random.Range(volLow, volHigh);
                     source.PlayOneShot(zombie, vol);
-
+                    Destroy(zombify);
+                    zombifies.Remove(zombify);
                 }
             }
             if (player.position.z - zombifies[0].transform.position.z > 14)
@@ -386,11 +361,13 @@ public class SceneController : MonoBehaviour
             {
                 if (pBox.CheckOverlap(acid.GetComponent<ColliderAABB>()))
                 { 
-                    print("go go gadget ouch");
+                    
                     if (humanityMeterRef.mainSlider.value >= 60)
                     {
                         print("monster");
                         playerRef.hasPower2b = true;
+                        Destroy(acid);
+                        acids.Remove(acid);
                     }
                 }
             }
@@ -407,11 +384,13 @@ public class SceneController : MonoBehaviour
             {
                 if (pBox.CheckOverlap(monleg.GetComponent<ColliderAABB>()))
                 { 
-                    print("go go gadget ouch");
+                    
                     if (humanityMeterRef.mainSlider.value >= 60)
                     {
                         print("monster");
                         playerRef.hasPower1b = true;
+                        Destroy(monleg);
+                        monlegs.Remove(monleg);
                     }
                 }
             }
@@ -428,11 +407,13 @@ public class SceneController : MonoBehaviour
             {
                 if (pBox.CheckOverlap(ear.GetComponent<ColliderAABB>()))
                 { 
-                    print("go go gadget ouch");
+                    
                     if (humanityMeterRef.mainSlider.value >= 60)
                     {
                         print("monster");
                         playerRef.hasPower3b = true;
+                        Destroy(ear);
+                        ears.Remove(ear);
                     }
                 }
                 
@@ -451,7 +432,7 @@ public class SceneController : MonoBehaviour
             {
                 if (pBox.CheckOverlap(coffee.GetComponent<ColliderAABB>()))
                 {
-                    print("Coffee Collision!");
+                    
                     countdown1 = 0;
                     if (humanityMeterRef.mainSlider.value <= 40)
                     {
@@ -459,8 +440,19 @@ public class SceneController : MonoBehaviour
                         playerRef.hasPower1 = true;
                         //play sound
                         source.PlayOneShot(coffeeSound, 0.6f);
+                        Destroy(coffee);
+                        coffees.Remove(coffee);
                     }
 
+                }
+            }
+            if (coffees.Count > 0)
+            {
+
+                if (player.position.z - coffees[0].transform.position.z > 14)
+                {
+                    Destroy(coffees[0]);
+                    coffees.RemoveAt(0);
                 }
             }
         }
@@ -481,7 +473,18 @@ public class SceneController : MonoBehaviour
                         playerRef.hasPower2 = true;
                         //play sound
                         source.PlayOneShot(bikeSound, 1f);
+                        Destroy(bike);
+                        bikes.Remove(bike);
                     }
+                }
+            }
+            if (bikes.Count > 0)
+            {
+
+                if (player.position.z - bikes[0].transform.position.z > 14)
+                {
+                    Destroy(bikes[0]);
+                    bikes.RemoveAt(0);
                 }
             }
         }
@@ -519,8 +522,19 @@ public class SceneController : MonoBehaviour
                     {
                         print("human");
                         playerRef.hasPower3 = true;
+                        Destroy(balloon);
+                        balloons.Remove(balloon);
                     }
                     //else print("No change!");
+                }
+            }
+            if (balloons.Count > 0)
+            {
+
+                if (player.position.z - balloons[0].transform.position.z > 14)
+                {
+                    Destroy(balloons[0]);
+                    balloons.RemoveAt(0);
                 }
             }
         }//end balloon
