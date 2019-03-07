@@ -39,8 +39,8 @@ public class PlayerRun : MonoBehaviour
     private int jumpNum = 0;
 
     public Vector3 moveDirection;
-    public float maxDashTime = 1.0f;
-    public float dashSpeed = 1.0f;
+    public float maxDashTime = 5.0f;
+    public float dashSpeed = 50;
     public float dashStoppingSpeed = 0.1f;
 
     private float currentDashTime;
@@ -80,7 +80,25 @@ public class PlayerRun : MonoBehaviour
         }
         else if (human.mainSlider.value >= 60)
         {
-            speed = 10;
+            //if (hasPower1b)
+        //{
+            if (Input.GetButtonDown("Fire2"))
+            {
+                print("Zoom!");
+                currentDashTime = 0.5f;
+                speed = 90;
+            }
+            if (currentDashTime < maxDashTime)
+            {
+                moveDirection = new Vector3(0, 0, dashSpeed);
+                currentDashTime += dashStoppingSpeed;
+
+            }
+            else
+            {
+                speed = 10;
+            }
+        //}
         }
         else
         {
@@ -102,25 +120,25 @@ public class PlayerRun : MonoBehaviour
         }
 
         //power1
-        if (hasPower1b)
-        {
-            if (Input.GetButtonDown("Fire2"))
-            {
-                print("Zoom!");
-                currentDashTime = 2.0f;
-                speed = 30;
-            }
-            if (currentDashTime < maxDashTime)
-            {
-                moveDirection = new Vector3(0, 0, dashSpeed);
-                currentDashTime += dashStoppingSpeed;
+        //if (hasPower1b)
+        //{
+            //if (Input.GetButtonDown("Fire2"))
+            //{
+               // print("Zoom!");
+               // currentDashTime = 2.0f;
+               // speed = 30;
+           // }
+           // if (currentDashTime < maxDashTime)
+            //{
+               // moveDirection = new Vector3(0, 0, dashSpeed);
+               // currentDashTime += dashStoppingSpeed;
 
-            }
-            else
-            {
-                speed = 10;
-            }
-        }
+           // }
+           // else
+           // {
+               // speed = 10;
+            //}
+      //  }
 
 
         //jump logic

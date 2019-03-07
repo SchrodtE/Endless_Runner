@@ -23,11 +23,11 @@ public class PortraitUI : MonoBehaviour
 
     void Update()
     {
-        if (humanityMeterRef.mainSlider.value <= 40)
+        if (humanityMeterRef.mainSlider.value < 40)
         {
             m_Image.sprite = m_Sprite;
         }
-        else if (humanityMeterRef.mainSlider.value >= 60)
+        else if (humanityMeterRef.mainSlider.value > 60)
         {
             m_Image.sprite = n_Sprite;
         }
