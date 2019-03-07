@@ -8,13 +8,19 @@ public class HumanController : MonoBehaviour
     private Rigidbody rigid;
     public Vector3 moveDirH;
     public float moveForceH = 0f;
+    public Vector3 bulletDir;
 
     public Vector3 pos;
+
+    HumanityMeter human;
+
+    public GameObject EnemyBullet;
 
     // Start is called before the first frame update
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
+        human = GameObject.Find("Slider").GetComponent<HumanityMeter>();
     }
 
     // Update is called once per frame
@@ -35,6 +41,23 @@ public class HumanController : MonoBehaviour
             moveDirH = -transform.forward;
 
             transform.rotation = Quaternion.LookRotation(moveDirH);
+
+            int attPick = Random.Range(0, 4);
+
+            if (human.mainSlider.value > 60)
+            {
+                if (attPick == 2 || attPick == 1)
+                {
+                    Attack();
+                }
+            }
+            else if(human.mainSlider.value >= 40 && human.mainSlider.value <= 60)
+            {
+                if (attPick == 2 || attPick == 1)
+                {
+                    Attack();
+                }
+            }
         }
 
 
@@ -57,22 +80,9 @@ public class HumanController : MonoBehaviour
 
     }//end update
 
-    /**Vector3 ChooseDirection()
+    void Attack()
     {
-        System.Random ran = new System.Random();
-        int i = ran.Next(0, 1);
-        Vector3 dir = new Vector3();
-
-        if(i == 0)
-        {
-            dir = transform.right;
-        }
-
-        if(i == 1)
-        {
-            dir = -transform.right;
-        }
-
-        return dir;
-    }**/
+        GameObject obj = Instantiate(EnemyBullet, transform.position, transform.rotation) as GameObject;
+        SceneController.bullets.Add(obj);
+    }
 }

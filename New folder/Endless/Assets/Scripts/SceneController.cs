@@ -70,11 +70,13 @@ public class SceneController : MonoBehaviour
     {
         pBox = GameObject.Find("Player").GetComponent<ColliderAABB>();
         playerRef = GameObject.Find("Player").GetComponent<PlayerRun>();
-        //epBox = GameObject.Find("Enemy").GetComponent<ColliderAABB>();
+        epBox = GameObject.Find("Enemy").GetComponent<ColliderAABB>();
+
         //wBox1 = GameObject.Find("Weapon").GetComponent<ColliderAABB>();
         //weaponRef1 = GameObject.Find("Weapon").GetComponent<PlayerRun>();
         humanityMeterRef = GameObject.Find("Slider").GetComponent<HumanityMeter>();
         healthMeterRef = GameObject.Find("OtherSlider").GetComponent<HealthMeter>();
+        epBox = GameObject.Find("Enemy(Clone)").GetComponent<ColliderAABB>();
 
         source = GetComponent<AudioSource>();
         source.PlayOneShot(bgMusic, 0.1f);
@@ -381,7 +383,50 @@ public class SceneController : MonoBehaviour
                 acids.RemoveAt(0);
             }
         }
+        //enemy bullets
+        if (bullets.Count > 0)
+        {
+            foreach (GameObject bullet in bullets)
+            {
+                if (pBox.CheckOverlap(bullet.GetComponent<ColliderAABB>()))
+                {
+                    print("oof");
+                    healthMeterRef.secondSlider.value -= 5;
 
+                    Destroy(bullet);
+                    bullets.Remove(bullet);
+                }
+            }
+            if (player.position.z - bullets[0].transform.position.z > 14)
+            {
+                Destroy(bullets[0]);
+                bullets.RemoveAt(0);
+            }
+        }
+        //end enemy bullets
+
+        //projectiles
+        if (projectiles.Count > 0)
+        {
+            foreach (GameObject projectile in projectiles)
+            {
+                if (epBox.CheckOverlap(projectile.GetComponent<ColliderAABB>()))
+                {
+                    print("oof ooch");
+                    Destroy(enemies[0]);
+                    enemies.RemoveAt(0);
+                }
+                Destroy(projectile);
+                projectiles.Remove(projectile);
+            }
+            if (player.position.z - projectiles[0].transform.position.z > 14)
+            {
+                Destroy(projectiles[0]);
+                projectiles.RemoveAt(0);
+            }
+        }
+        //end projectiles
+        
         if (monlegs.Count > 0)
         {
             foreach (GameObject monleg in monlegs)
@@ -477,10 +522,10 @@ public class SceneController : MonoBehaviour
                         playerRef.hasPower2 = true;
                         //play sound
                         source.PlayOneShot(bikeSound, 1f);
-                        Destroy(bike);
-                        bikes.Remove(bike);
                     }
                 }
+                Destroy(bike);
+                bikes.Remove(bike);
             }
             if (bikes.Count > 0)
             {
