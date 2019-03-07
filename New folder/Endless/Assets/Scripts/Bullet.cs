@@ -9,9 +9,17 @@ public class Bullet : MonoBehaviour
     public float bulletSpeed = 30f;
     public Vector3 bulletDir;
 
+    static public List<GameObject> enemyBullets = new List<GameObject>();
+
+    ColliderAABB pBox;
+
+    HealthMeter healthMeterRef;
+
     // Start is called before the first frame update
     void Start()
     {
+        pBox = GameObject.Find("Player").GetComponent<ColliderAABB>();
+
         rigid = GetComponent<Rigidbody>();
     }
 
@@ -21,5 +29,19 @@ public class Bullet : MonoBehaviour
         bulletDir = -Vector3.forward;
 
         rigid.velocity = bulletDir * bulletSpeed;
+
+        //bullets
+
+            foreach (GameObject enemyBullet in enemyBullets)
+            {
+                if (pBox.CheckOverlap(enemyBullet.GetComponent<ColliderAABB>()))
+                {
+                    print("enemy bullet Collision!");
+                    //ouch
+                    healthMeterRef.secondSlider.value--;
+                }
+            }
+
+        //end bullets
     }
 }
