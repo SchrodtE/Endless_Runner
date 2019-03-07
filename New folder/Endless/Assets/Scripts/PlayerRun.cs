@@ -7,8 +7,6 @@ public class PlayerRun : MonoBehaviour
 
     public Vector3 jump;
     public Vector3 pos;
-    public Vector3 weaponPos1;
-    public Vector3 weaponPos2;
     public Vector3 bulletDir;
 
     private float speed = 20;
@@ -24,9 +22,6 @@ public class PlayerRun : MonoBehaviour
     public bool hasPower3b = false;
  
     public static Mesh Player;
-    public static Mesh Weapon;
-    public GameObject prefabWeapon1;
-    public GameObject prefabWeapon2;
     public GameObject projectile;
 
     //List<GameObject> bullets = new List<GameObject>();
@@ -60,13 +55,6 @@ public class PlayerRun : MonoBehaviour
         //powerLOL = GameObject.Find("Power").GetComponent<SceneController>();
         rb = GetComponent<Rigidbody>();
         human = GameObject.Find("Slider").GetComponent<HumanityMeter>();
-        //Instantiate(prefabWeapon1, weaponPos1, Quaternion.identity);
-        weaponPos1.x = 1;
-        weaponPos1.y = 1;
-        weaponPos1.z = 1;
-        weaponPos2.x = 1;
-        weaponPos2.y = 1;
-        weaponPos2.z = 1;
 
         //bryan's stuff
         currentDashTime = maxDashTime;
@@ -102,15 +90,11 @@ public class PlayerRun : MonoBehaviour
             //power 2
             if (hasPower2)
         {
-            weaponPos1.x = pos.x;
-            weaponPos1.y = pos.y;
-            weaponPos1.z = pos.z;
+            
         }
         else
         {
-            weaponPos1.x = 101;
-            weaponPos1.y = 101;
-            weaponPos1.z = 101;
+            
         }
         if (pos.y >= 2 && !hasPower3b)
         {
@@ -233,5 +217,6 @@ public class PlayerRun : MonoBehaviour
     {
         GameObject obj = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
         bulletDir = Vector3.forward;
+        SceneController.projectiles.Add(obj);
     }
 }

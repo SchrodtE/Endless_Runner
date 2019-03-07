@@ -53,10 +53,11 @@ public class SceneController : MonoBehaviour
     static public List<GameObject> ears = new List<GameObject>();
     static public List<GameObject> acids = new List<GameObject>();
     static public List<GameObject> projectiles = new List<GameObject>();
-    
+    static public List<GameObject> bullets = new List<GameObject>();
+
 
     ColliderAABB pBox;
-    //ColliderAABB epBox;
+    ColliderAABB epBox;
     PlayerRun playerRef;
     ColliderAABB wBox1;
     PlayerRun weaponRef1;
@@ -70,7 +71,7 @@ public class SceneController : MonoBehaviour
     {
         pBox = GameObject.Find("Player").GetComponent<ColliderAABB>();
         playerRef = GameObject.Find("Player").GetComponent<PlayerRun>();
-        //epBox = GameObject.Find("Enemy").GetComponent<ColliderAABB>();
+        epBox = GameObject.Find("Enemy").GetComponent<ColliderAABB>();
         //wBox1 = GameObject.Find("Weapon").GetComponent<ColliderAABB>();
         //weaponRef1 = GameObject.Find("Weapon").GetComponent<PlayerRun>();
         humanityMeterRef = GameObject.Find("Slider").GetComponent<HumanityMeter>();
@@ -275,7 +276,6 @@ public class SceneController : MonoBehaviour
                     }
                     Destroy(humheal);
                     humheals.Remove(humheal);
-
                 }
             }
             if (player.position.z - humheals[0].transform.position.z > 14)
@@ -381,6 +381,36 @@ public class SceneController : MonoBehaviour
                 acids.RemoveAt(0);
             }
         }
+
+        //enemy bullets
+        if (bullets.Count > 0)
+        {
+            foreach (GameObject bullet in bullets)
+            {
+                if (pBox.CheckOverlap(bullet.GetComponent<ColliderAABB>()))
+                {
+                    print("oof");
+                    Destroy(bullet);
+                    bullets.Remove(bullet);
+                }
+            }
+        }
+        //end enemy bullets
+
+        //projectiles
+        if (projectiles.Count > 0)
+        {
+            foreach (GameObject projectile in projectiles)
+            {
+                if (epBox.CheckOverlap(projectile.GetComponent<ColliderAABB>()))
+                {
+                    print("oof");
+                    Destroy(projectile);
+                    bullets.Remove(projectile);
+                }
+            }
+        }
+        //end projectiles
 
         if (monlegs.Count > 0)
         {

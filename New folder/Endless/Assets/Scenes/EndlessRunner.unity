@@ -223,8 +223,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!135 &125715218
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -738,7 +738,6 @@ MonoBehaviour:
   prefabChunk: {fileID: 1850253182045503114, guid: 8dfb7ca69c0ac1740854bc53f7b6e9c8,
     type: 3}
   player: {fileID: 125715225}
-  enemy: {fileID: 6693814363871197569, guid: e3a08fd828d31ab4b970df575f1a902d, type: 3}
   hasBeenHit: 0
   countdown1: 0
   countdown2: 0
