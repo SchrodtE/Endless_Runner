@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
 
     public Vector3 pos;
 
+    public GameObject projectile;
     HumanityMeter human;
 
     public GameObject EnemyBullet;
@@ -100,7 +101,6 @@ public class EnemyController : MonoBehaviour
 
     void Attack()
     {
-            GameObject obj = Instantiate(EnemyBullet, transform.position, transform.rotation) as GameObject;
-            SceneController.bullets.Add(obj);
+            GameObject obj = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
     }
 }

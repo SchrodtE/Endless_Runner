@@ -55,11 +55,10 @@ public class SceneController : MonoBehaviour
     static public List<GameObject> ears = new List<GameObject>();
     static public List<GameObject> acids = new List<GameObject>();
     static public List<GameObject> projectiles = new List<GameObject>();
-    static public List<GameObject> bullets = new List<GameObject>();
-
+    
 
     ColliderAABB pBox;
-    ColliderAABB epBox;
+    //ColliderAABB epBox;
     PlayerRun playerRef;
     ColliderAABB wBox1;
     PlayerRun weaponRef1;
@@ -278,6 +277,7 @@ public class SceneController : MonoBehaviour
                     }
                     Destroy(humheal);
                     humheals.Remove(humheal);
+
                 }
             }
             if (player.position.z - humheals[0].transform.position.z > 14)
@@ -383,7 +383,6 @@ public class SceneController : MonoBehaviour
                 acids.RemoveAt(0);
             }
         }
-
         //enemy bullets
         if (bullets.Count > 0)
         {
@@ -427,7 +426,7 @@ public class SceneController : MonoBehaviour
             }
         }
         //end projectiles
-
+        
         if (monlegs.Count > 0)
         {
             foreach (GameObject monleg in monlegs)
