@@ -13,12 +13,15 @@ public class EnemyController : MonoBehaviour
 
     public Vector3 pos;
 
+    HumanityMeter human;
+
     public GameObject EnemyBullet;
 
     // Start is called before the first frame update
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
+        human = GameObject.Find("Slider").GetComponent<HumanityMeter>();
     }
 
     // Update is called once per frame
@@ -60,9 +63,19 @@ public class EnemyController : MonoBehaviour
 
             int attPick = Random.Range(0, 4);
 
-            if (attPick == 2 || attPick == 1)
+            if (human.mainSlider.value < 40)
             {
-                Attack();
+                if (attPick == 2 || attPick == 1)
+                {
+                    Attack();
+                }
+            }
+            else if (human.mainSlider.value >= 40 && human.mainSlider.value <= 60)
+            {
+                if (attPick == 2 || attPick == 1)
+                {
+                    Attack();
+                }
             }
         }
 

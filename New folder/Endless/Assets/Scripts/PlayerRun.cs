@@ -74,11 +74,11 @@ public class PlayerRun : MonoBehaviour
         //Vector3 weaponPos2 = transform.position;
         //weaponPos2.z = pos.z;
 
-        if (human.mainSlider.value <= 40)
+        if (human.mainSlider.value < 40)
         {
             speed = 20;
         }
-        else if (human.mainSlider.value >= 60)
+        else if (human.mainSlider.value > 60)
         {
             //if (hasPower1b)
         //{

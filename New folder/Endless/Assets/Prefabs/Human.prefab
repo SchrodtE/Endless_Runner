@@ -138,7 +138,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirH: {x: 0, y: 0, z: 0}
   moveForceH: 5
+  bulletDir: {x: 0, y: 0, z: 0}
   pos: {x: 0, y: 0, z: 0}
+  EnemyBullet: {fileID: 1748574418812261720, guid: 3008920c29812a64198221f5cecb6217,
+    type: 3}
 --- !u!1001 &3598011944441319065
 PrefabInstance:
   m_ObjectHideFlags: 0
