@@ -344,6 +344,7 @@ public class SceneController : MonoBehaviour
                     //play sound
                     float vol = Random.Range(volLow, volHigh);
                     source.PlayOneShot(zombie, vol);
+
                     Destroy(zombify);
                     zombifies.Remove(zombify);
                 }

@@ -58,7 +58,12 @@ public class EnemyController : MonoBehaviour
 
             transform.rotation = Quaternion.LookRotation(moveDir);
 
-            Attack();
+            int attPick = Random.Range(0, 4);
+
+            if (attPick == 2 || attPick == 1)
+            {
+                Attack();
+            }
         }
 
         //limiter
@@ -82,26 +87,7 @@ public class EnemyController : MonoBehaviour
 
     void Attack()
     {
-        GameObject obj = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
-        bulletDir = -Vector3.forward;
+            GameObject obj = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
+            bulletDir = -Vector3.forward;
     }
-
-        /**Vector3 ChooseDirection()
-        {
-            System.Random ran = new System.Random();
-            int i = ran.Next(0, 1);
-            Vector3 dir = new Vector3();
-
-            if(i == 0)
-            {
-                dir = transform.right;
-            }
-
-            if(i == 1)
-            {
-                dir = -transform.right;
-            }
-
-            return dir;
-        }**/
 }

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3789637559439498234}
   - component: {fileID: 2411479248222587397}
   - component: {fileID: 7493184291118902916}
-  - component: {fileID: 8625781792958817102}
   - component: {fileID: 1436794600910094287}
   m_Layer: 0
   m_Name: Projectile
@@ -61,7 +60,6 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 2100000, guid: 1b36c7350601efa4fb828def085b9171, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -111,20 +109,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8625781792958817102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177457219882214171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e0f7e09178c2b459ce419a3dc4ec1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpeed: 20
-  bulletDir: {x: 0, y: 0, z: 0}
 --- !u!114 &1436794600910094287
 MonoBehaviour:
   m_ObjectHideFlags: 0
