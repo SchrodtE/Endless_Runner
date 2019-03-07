@@ -6,9 +6,22 @@ public class ProjectileBehavior : MonoBehaviour
 {
     public Transform player;
     public float speed = 200f;
+
+    private Rigidbody rigid;
+
+    static public List<GameObject> projectiles = new List<GameObject>();
+
+    ColliderAABB epBox;
+
+    HealthMeter healthMeterRef;
+
     // Start is called before the first frame update
     void Start()
     {
+        epBox = GameObject.Find("Enemy").GetComponent<ColliderAABB>();
+
+        rigid = GetComponent<Rigidbody>();
+
         player = GameObject.Find("Player").transform;
         transform.position = player.position;
 
@@ -22,10 +35,14 @@ public class ProjectileBehavior : MonoBehaviour
         pos.z += speed * Time.deltaTime;
 
         transform.position = pos;
-    }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        
+        foreach (GameObject projectile in projectiles)
+        {
+            if (epBox.CheckOverlap(projectile.GetComponent<ColliderAABB>()))
+            {
+                print("OOf!");
+                
+            }
+        }
     }
 }

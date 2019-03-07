@@ -88,6 +88,5 @@ public class EnemyController : MonoBehaviour
     void Attack()
     {
             GameObject obj = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
-            bulletDir = -Vector3.forward;
     }
 }
