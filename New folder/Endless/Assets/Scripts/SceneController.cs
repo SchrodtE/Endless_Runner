@@ -55,10 +55,11 @@ public class SceneController : MonoBehaviour
     static public List<GameObject> ears = new List<GameObject>();
     static public List<GameObject> acids = new List<GameObject>();
     static public List<GameObject> projectiles = new List<GameObject>();
-    
+    static public List<GameObject> bullets = new List<GameObject>();
+
 
     ColliderAABB pBox;
-    //ColliderAABB epBox;
+    ColliderAABB epBox;
     PlayerRun playerRef;
     ColliderAABB wBox1;
     PlayerRun weaponRef1;

@@ -113,7 +113,7 @@ MonoBehaviour:
   moveDir: {x: 0, y: 0, z: 0}
   bulletDir: {x: 0, y: 0, z: 0}
   pos: {x: 0, y: 0, z: 0}
-  EnemyBullet: {fileID: 1748574418812261720, guid: 3008920c29812a64198221f5cecb6217,
+  EnemyBullets: {fileID: 1748574418812261720, guid: 3008920c29812a64198221f5cecb6217,
     type: 3}
 --- !u!114 &3164645726141888028
 MonoBehaviour:

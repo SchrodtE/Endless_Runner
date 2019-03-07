@@ -237,5 +237,6 @@ public class PlayerRun : MonoBehaviour
     {
         GameObject obj = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
         bulletDir = Vector3.forward;
+        SceneController.projectiles.Add(obj);
     }
 }

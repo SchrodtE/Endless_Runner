@@ -7,8 +7,6 @@ public class ProjectileBehavior : MonoBehaviour
     public Transform player;
     public float speed = 200f;
 
-    private Rigidbody rigid;
-
     static public List<GameObject> projectiles = new List<GameObject>();
 
     ColliderAABB epBox;
@@ -19,8 +17,6 @@ public class ProjectileBehavior : MonoBehaviour
     void Start()
     {
         epBox = GameObject.Find("Enemy").GetComponent<ColliderAABB>();
-
-        rigid = GetComponent<Rigidbody>();
 
         player = GameObject.Find("Player").transform;
         transform.position = player.position;

@@ -297,6 +297,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jump: {x: 0, y: 0, z: 0}
   pos: {x: 0, y: 0, z: 0}
+  weaponPos1: {x: 0, y: 0, z: 0}
+  weaponPos2: {x: 0, y: 0, z: 0}
   bulletDir: {x: 0, y: 0, z: 0}
   jumpForce: 5
   attackRange: 3
@@ -307,12 +309,9 @@ MonoBehaviour:
   hasPower1b: 0
   hasPower2b: 0
   hasPower3b: 0
-<<<<<<< HEAD
   th1: {fileID: 930846394378000579, guid: 37bfc41755c30bc4cb3940b6a9b4f9c3, type: 3}
   th2: {fileID: 5078240798988398423, guid: 0778ebf85eea3634e9e948cd06ce15e5, type: 3}
   th3: {fileID: 4925450313543296118, guid: df371ec63207b084eb5f8b224b8943eb, type: 3}
-=======
->>>>>>> ecdebdfd56f11ef4f09295f2496881557ba20776
   projectile: {fileID: 177457219882214171, guid: d984078e83b1df0489a05fef80042efb,
     type: 3}
   maxJumps: 2
@@ -320,7 +319,7 @@ MonoBehaviour:
   maxDashTime: 1
   dashSpeed: 30
   dashStoppingSpeed: 0.1
-  playerPos: {fileID: 0}
+  playerPos: {fileID: 125715225}
 --- !u!114 &125715223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,8 +651,8 @@ GameObject:
   - component: {fileID: 534669905}
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
-  - component: {fileID: 534669906}
   - component: {fileID: 534669907}
+  - component: {fileID: 534669906}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
