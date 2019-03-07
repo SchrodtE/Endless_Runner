@@ -216,17 +216,17 @@ MonoBehaviour:
     type: 3}
   prefabHumHealth3: {fileID: 4113084720841335312, guid: 0bc96522e1be2154c87e4cbc4f4b137c,
     type: 3}
-  prefabZomHealth1: {fileID: 4759216796098268197, guid: 8e97634630423224290765128d945451,
+  prefabZomHealth1: {fileID: 6269444555496831091, guid: 4abbbbb6ffa36214d9ccfe35578c4fab,
     type: 3}
-  prefabZomHealth2: {fileID: 4759216796098268197, guid: 8e97634630423224290765128d945451,
+  prefabZomHealth2: {fileID: 6269444555496831091, guid: 4abbbbb6ffa36214d9ccfe35578c4fab,
     type: 3}
-  prefabZomHealth3: {fileID: 4759216796098268197, guid: 8e97634630423224290765128d945451,
+  prefabZomHealth3: {fileID: 6269444555496831091, guid: 4abbbbb6ffa36214d9ccfe35578c4fab,
     type: 3}
   prefabZombify1: {fileID: 1692568006219244546, guid: af0cea566332df0499ee2bc0f0f8d0f9,
     type: 3}
   prefabZombify2: {fileID: 77753114339934668, guid: f2afb1fecb9ed554994ca56157f9df11,
     type: 3}
-  prefabZombify3: {fileID: 1742412238155085435, guid: 3a0432569ada5374cb45c4104c7577f7,
+  prefabZombify3: {fileID: 2826696915365882622, guid: 2b44f59e76a6e1b42abca83c633f98aa,
     type: 3}
   prefabHumify1: {fileID: 7701443060045529180, guid: bfd5791892b0a9546815730458dcef62,
     type: 3}
@@ -236,9 +236,9 @@ MonoBehaviour:
     type: 3}
   prefabAcid: {fileID: 3555183719665994612, guid: 234310ade5212f94b9acca62923caabb,
     type: 3}
-  prefabMonLegs: {fileID: 3774496565832602868, guid: 93a02003d9c43a643ac692df7d741ce5,
+  prefabMonLegs: {fileID: 1585477901916637486, guid: 78212ba87e3374c40bf1566d279a322f,
     type: 3}
-  prefabEar: {fileID: 3135332474408530999, guid: 06ae77f85da34f8469a44f2e5db2f289,
+  prefabEar: {fileID: 7540525568532316848, guid: 634d5289fafbddc418d1565b9b15f381,
     type: 3}
 --- !u!114 &8848743649127522768
 MonoBehaviour:
