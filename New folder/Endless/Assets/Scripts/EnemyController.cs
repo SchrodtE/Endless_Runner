@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour
 
     public Vector3 pos;
 
-    public GameObject projectile;
+    public GameObject EnemyBullet;
 
     // Start is called before the first frame update
     void Start()
@@ -87,6 +87,7 @@ public class EnemyController : MonoBehaviour
 
     void Attack()
     {
-            GameObject obj = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
+            GameObject obj = Instantiate(EnemyBullet, transform.position, transform.rotation) as GameObject;
+            SceneController.bullets.Add(obj);
     }
 }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6693814363871197569}
   - component: {fileID: 7827754149727403866}
   - component: {fileID: 9088996592040708938}
-  - component: {fileID: 4733710082727581496}
   - component: {fileID: 736905755111092244}
   - component: {fileID: 6897540681740625245}
   - component: {fileID: 3164645726141888028}
@@ -82,19 +81,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4733710082727581496
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3553735095773550420}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &736905755111092244
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -127,7 +113,7 @@ MonoBehaviour:
   moveDir: {x: 0, y: 0, z: 0}
   bulletDir: {x: 0, y: 0, z: 0}
   pos: {x: 0, y: 0, z: 0}
-  projectile: {fileID: 1748574418812261720, guid: 3008920c29812a64198221f5cecb6217,
+  EnemyBullet: {fileID: 1748574418812261720, guid: 3008920c29812a64198221f5cecb6217,
     type: 3}
 --- !u!114 &3164645726141888028
 MonoBehaviour:
@@ -141,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ce81e39a303f7848b3e82ecd6b7c721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  halfSize: {x: 0.5, y: 0.5, z: 0.1}
+  halfSize: {x: 0.5, y: 0.5, z: 0.25}
 --- !u!1001 &8244888137175694406
 PrefabInstance:
   m_ObjectHideFlags: 0

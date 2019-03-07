@@ -23,6 +23,7 @@ public class Item1 : MonoBehaviour
     public GameObject prefabAcid;
     public GameObject prefabMonLegs;
     public GameObject prefabEar;
+
     // Start is called before the first frame update
     void Start()
     {

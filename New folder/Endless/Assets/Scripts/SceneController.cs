@@ -53,10 +53,11 @@ public class SceneController : MonoBehaviour
     static public List<GameObject> ears = new List<GameObject>();
     static public List<GameObject> acids = new List<GameObject>();
     static public List<GameObject> projectiles = new List<GameObject>();
-    
+    static public List<GameObject> bullets = new List<GameObject>();
+
 
     ColliderAABB pBox;
-    //ColliderAABB epBox;
+    ColliderAABB epBox;
     PlayerRun playerRef;
     ColliderAABB wBox1;
     PlayerRun weaponRef1;
@@ -70,7 +71,7 @@ public class SceneController : MonoBehaviour
     {
         pBox = GameObject.Find("Player").GetComponent<ColliderAABB>();
         playerRef = GameObject.Find("Player").GetComponent<PlayerRun>();
-        //epBox = GameObject.Find("Enemy").GetComponent<ColliderAABB>();
+        epBox = GameObject.Find("Enemy").GetComponent<ColliderAABB>();
         //wBox1 = GameObject.Find("Weapon").GetComponent<ColliderAABB>();
         //weaponRef1 = GameObject.Find("Weapon").GetComponent<PlayerRun>();
         humanityMeterRef = GameObject.Find("Slider").GetComponent<HumanityMeter>();
@@ -140,18 +141,18 @@ public class SceneController : MonoBehaviour
                     //print("ZomCOLLISION!!");
                     
                     //if human colliding with monsters
-                    if (humanityMeterRef.mainSlider.value <= 40)
+                    if (humanityMeterRef.mainSlider.value < 40)
                     {
                         //if has weapon
                         if (playerRef.hasPower2)
                         {
                             //make more human
-                            humanityMeterRef.mainSlider.value--;
+                            humanityMeterRef.mainSlider.value -= 5 ;
                         }
                         else
                         {
                             //if no weapon, ouch
-                            healthMeterRef.secondSlider.value--;
+                            healthMeterRef.secondSlider.value -= 5;
                             //play sound
                             float vol = Random.Range(volLow, volHigh);
                             source.PlayOneShot(zombieCrunch, vol);
@@ -162,7 +163,7 @@ public class SceneController : MonoBehaviour
                     //do damage if inbetween
                     if (humanityMeterRef.mainSlider.value > 40 && humanityMeterRef.mainSlider.value < 60)
                     {
-                        healthMeterRef.secondSlider.value--;
+                        healthMeterRef.secondSlider.value -=5;
                     }
                 }
             }
@@ -183,19 +184,19 @@ public class SceneController : MonoBehaviour
                     //print("HumanCOLLISION!!");
                    
                     //if monster colliding with humans
-                    if (humanityMeterRef.mainSlider.value >= 60)
+                    if (humanityMeterRef.mainSlider.value > 60)
                     {
                         //ouch
-                        healthMeterRef.secondSlider.value--;
+                        healthMeterRef.secondSlider.value -=5;
                         //play sound
                         float vol = Random.Range(volLow, volHigh);
                         source.PlayOneShot(punch, vol);
                     }
                     //if human colliding with human with weapon
-                    else if (humanityMeterRef.mainSlider.value <= 40 && playerRef.hasPower2)
+                    else if (humanityMeterRef.mainSlider.value < 40 && playerRef.hasPower2)
                     {
                         //make more monster
-                        humanityMeterRef.mainSlider.value++;
+                        humanityMeterRef.mainSlider.value +=5;
                         //play sound
                         float vol = Random.Range(volLow, volHigh);
                         source.PlayOneShot(zombie, vol);
@@ -203,7 +204,7 @@ public class SceneController : MonoBehaviour
                     //do damage if inbetween
                     else
                     {
-                        healthMeterRef.secondSlider.value--;
+                        healthMeterRef.secondSlider.value -=5;
                     }
                 }
             }
@@ -242,11 +243,11 @@ public class SceneController : MonoBehaviour
                     print("Collission!");
                     if (playerRef.hasPower2)
                     {
-                        humanityMeterRef.mainSlider.value += 1;
+                        humanityMeterRef.mainSlider.value += 5;
                     }
                     else
                     {
-                        humanityMeterRef.mainSlider.value -= 1;
+                        humanityMeterRef.mainSlider.value -= 5;
                     }
                     //healthMeterRef.secondSlider.value -= 1;
                 }
@@ -262,20 +263,19 @@ public class SceneController : MonoBehaviour
                 {
                     
                     //heals both human and inbetween
-                    if (humanityMeterRef.mainSlider.value < 60)
+                    if (humanityMeterRef.mainSlider.value <= 60)
                     {
-                        healthMeterRef.secondSlider.value++;
+                        healthMeterRef.secondSlider.value +=5;
                         //play sound
                         source.PlayOneShot(heal, 0.3f);
                     }
                     //hurts monster
-                    else if (humanityMeterRef.mainSlider.value >=60)
+                    else if (humanityMeterRef.mainSlider.value > 60)
                     {
-                        healthMeterRef.secondSlider.value--;
+                        healthMeterRef.secondSlider.value -=5;
                     }
                     Destroy(humheal);
                     humheals.Remove(humheal);
-
                 }
             }
             if (player.position.z - humheals[0].transform.position.z > 14)
@@ -295,15 +295,15 @@ public class SceneController : MonoBehaviour
                     //heals both monster and inbetween
                     if (humanityMeterRef.mainSlider.value <= 40)
                     {
-                        healthMeterRef.secondSlider.value--;
+                        healthMeterRef.secondSlider.value -=5;
                         //play sound
                         float vol = Random.Range(volLow, volHigh);
                         source.PlayOneShot(zombie, vol);
                     }
                     //hurts human
-                    else if (humanityMeterRef.mainSlider.value >= 60)
+                    else if (humanityMeterRef.mainSlider.value < 40)
                     {
-                        healthMeterRef.secondSlider.value++;
+                        healthMeterRef.secondSlider.value += 5;
                     }
                     Destroy(zomheal);
                     zomheals.Remove(zomheal);
@@ -323,7 +323,7 @@ public class SceneController : MonoBehaviour
                 if (pBox.CheckOverlap(humify.GetComponent<ColliderAABB>()))
                 {
                     
-                    humanityMeterRef.mainSlider.value -= 1;
+                    humanityMeterRef.mainSlider.value -= 5;
                     Destroy(humify);
                     humifies.Remove(humify);
                 }
@@ -343,7 +343,7 @@ public class SceneController : MonoBehaviour
                 if (pBox.CheckOverlap(zombify.GetComponent<ColliderAABB>()))
                 {
                     
-                    humanityMeterRef.mainSlider.value += 1;
+                    humanityMeterRef.mainSlider.value += 5;
                     //play sound
                     float vol = Random.Range(volLow, volHigh);
                     source.PlayOneShot(zombie, vol);
@@ -366,7 +366,7 @@ public class SceneController : MonoBehaviour
                 if (pBox.CheckOverlap(acid.GetComponent<ColliderAABB>()))
                 { 
                     
-                    if (humanityMeterRef.mainSlider.value >= 60)
+                    if (humanityMeterRef.mainSlider.value > 60)
                     {
                         print("monster");
                         playerRef.hasPower2b = true;
@@ -382,6 +382,36 @@ public class SceneController : MonoBehaviour
             }
         }
 
+        //enemy bullets
+        if (bullets.Count > 0)
+        {
+            foreach (GameObject bullet in bullets)
+            {
+                if (pBox.CheckOverlap(bullet.GetComponent<ColliderAABB>()))
+                {
+                    print("oof");
+                    Destroy(bullet);
+                    bullets.Remove(bullet);
+                }
+            }
+        }
+        //end enemy bullets
+
+        //projectiles
+        if (projectiles.Count > 0)
+        {
+            foreach (GameObject projectile in projectiles)
+            {
+                if (epBox.CheckOverlap(projectile.GetComponent<ColliderAABB>()))
+                {
+                    print("oof");
+                    Destroy(projectile);
+                    bullets.Remove(projectile);
+                }
+            }
+        }
+        //end projectiles
+
         if (monlegs.Count > 0)
         {
             foreach (GameObject monleg in monlegs)
@@ -389,7 +419,7 @@ public class SceneController : MonoBehaviour
                 if (pBox.CheckOverlap(monleg.GetComponent<ColliderAABB>()))
                 { 
                     
-                    if (humanityMeterRef.mainSlider.value >= 60)
+                    if (humanityMeterRef.mainSlider.value > 60)
                     {
                         print("monster");
                         playerRef.hasPower1b = true;
@@ -412,7 +442,7 @@ public class SceneController : MonoBehaviour
                 if (pBox.CheckOverlap(ear.GetComponent<ColliderAABB>()))
                 { 
                     
-                    if (humanityMeterRef.mainSlider.value >= 60)
+                    if (humanityMeterRef.mainSlider.value > 60)
                     {
                         print("monster");
                         playerRef.hasPower3b = true;
@@ -438,7 +468,7 @@ public class SceneController : MonoBehaviour
                 {
                     
                     countdown1 = 0;
-                    if (humanityMeterRef.mainSlider.value <= 40)
+                    if (humanityMeterRef.mainSlider.value < 40)
                     {
                         print("human");
                         playerRef.hasPower1 = true;
@@ -471,7 +501,7 @@ public class SceneController : MonoBehaviour
                 {
                     print("Bike Collision!");
                     countdown2 = 0;
-                    if (humanityMeterRef.mainSlider.value <= 40)
+                    if (humanityMeterRef.mainSlider.value < 40)
                     {
                         print("human");
                         playerRef.hasPower2 = true;
@@ -505,7 +535,7 @@ public class SceneController : MonoBehaviour
                 {
                     print("Balloon Collision!");
                     countdown3 = 0;
-                    if (humanityMeterRef.mainSlider.value <= 40)
+                    if (humanityMeterRef.mainSlider.value < 40)
                     {
                         print("human");
                         playerRef.hasPower3 = true;

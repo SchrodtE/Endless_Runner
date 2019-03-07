@@ -202,8 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 065603e2407c3334491990bf26be91ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabItem: {fileID: 9149936014999546700, guid: 9bc798bede8f66f4daada8eb3552fe7b,
-    type: 3}
+  prefabItem: {fileID: 0}
   prefabCoffee: {fileID: 5021483720172675942, guid: d65c7f1c8ad9e6f45af696825acd0ba3,
     type: 3}
   prefabBalloon: {fileID: 764726534317424731, guid: 7317c62db41a1a844b2c8e53a81f083c,

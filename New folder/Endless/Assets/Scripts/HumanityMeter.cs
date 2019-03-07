@@ -12,16 +12,16 @@ public class HumanityMeter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mainSlider.value = 25;
+        mainSlider.value = 20;
     }
 
     // Update is called once per frame
     void Update() {
-        if ((int)mainSlider.value <= 40)
+        if ((int)mainSlider.value < 40)
         {
             mainSlider.image.color = Color.Lerp(Color.green, Color.green, currentHealth / maxHealth);
         }
-        else if ((int)mainSlider.value >= 60)
+        else if ((int)mainSlider.value > 60)
         {
             mainSlider.image.color = Color.Lerp(Color.red, Color.green, currentHealth / maxHealth);
         }
